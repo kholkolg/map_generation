@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/GRE.iml" filepath="$PROJECT_DIR$/.idea/GRE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../map_generation/.idea/MapGeneration.iml" filepath="$PROJECT_DIR$/../map_generation/.idea/MapGeneration.iml" />
     </modules>
   </component>
 </project>
