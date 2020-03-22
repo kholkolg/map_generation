@@ -24,18 +24,7 @@ def generate_grid(grid_len, grid_height, cell_len, cell_height):
     :param cell_height: cell's width
     :return:
     """
-    # cols = int(l/a)
-    # rows = int(w/b)
 
-    """
-    x = np.array([0,1,2]) 
-    y = np.array([2,4,6])
-    
-    take advantage of broadcasting, to make a 2dim array of diffs
-    dx = x[..., np.newaxis] - x[np.newaxis, ...]
-    dy = y[..., np.newaxis] - y[np.newaxis, ...]
-    
-    """
     x = np.arange(0, grid_len, cell_len)
     y = np.arange(0, grid_height, cell_height)
     print(x)
@@ -64,34 +53,37 @@ def gre(grid_len, grid_height, cell_len, cell_height, p, q):
     # For each vertex where both i and j are odd, generate diagonal edges with the probability q.
     edges = []
     edges.extend([((i, 0), (i+1, 0)) for i in range(rows)])
-    edges.extend([((i, cols),(i+1, cols)) for i in range(rows)])
+    edges.extend([((i, cols), (i+1, cols)) for i in range(rows)])
     # vertical borders
     edges.extend([((0, i), (0, i+1)) for i in range(cols)])
     edges.extend([((rows, i), (rows, i+1)) for i in range(cols)])
 
-    edges = set([])
+    plot_network(edges)
+
+    edges = set(edges)
+
     for i in range(1, rows):
         for j in range(1, cols):
-   # horizontal edges
+            # horizontal edges
             if np.random.uniform() > p:
-                edges.add(((i,j),(i+1,j)))
+                edges.add(((i, j), (i+1, j)))
 
             # vertical edges
             if j == 0 and np.random.uniform() > p*(1-p):
-                edges.add(((i,j),(i,j+1)))
+                edges.add(((i, j), (i, j+1)))
 
-            if j > 0 and not ((i,j),(i+1)) in edges and np.random.uniform() > p:
-                edges.add(((i,j),(i,j+1)))
+            if j > 0 and not ((i, j), (i+1)) in edges and np.random.uniform() > p:
+                edges.add(((i, j), (i, j+1)))
 
             # diagonals
             if np.random.uniform() > q:
-                edges.add(((i,j),(i+1, j+1)))
+                edges.add(((i, j), (i+1, j+1)))
             if np.random.uniform() > q:
-                 edges.add(((i,j),(i-1, j-1)))
+                 edges.add(((i, j), (i-1, j-1)))
             if np.random.uniform() > q:
-                edges.add(((i,j),(i-1, j+1)))
+                edges.add(((i, j), (i-1, j+1)))
             if np.random.uniform() > q:
-                edges.add(((i,j),(i+1, j-1)))
+                edges.add(((i, j), (i+1, j-1)))
 
     plot_network(edges)
 

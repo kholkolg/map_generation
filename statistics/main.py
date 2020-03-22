@@ -7,24 +7,37 @@ import scipy.spatial
 from networkx import path_graph
 from shapely.geometry import box, Point
 import igraph as ig
-import operator
+
 
 
 BASIC_COLS = ['n', 'm', 'k_avg', 'edge_length_total', 'edge_length_avg',
               'node_density_km', 'edge_density_km', 'city', 'area_km']
 
 
-def compute_graph_area(graph):
+def edge_length_stats(graph):
 
-    nodes_proj = ox.graph_to_gdfs(graph, edges=False)
+    lengths = np.array([x['length'] for _, x in graph.edges.items() if x['length'] > 10])
+    # lengths.sort()
+    mean = lengths.mean()
+    sigma = lengths.std()
+    # n = len(lengths)
+    # lens = np.array(lengths)
 
-    bbox = box(*nodes_proj.unary_union.bounds)
-    orig_point = bbox.centroid
-    print(orig_point)
-    node0 = ox.get_nearest_node(graph, orig_point, method='euclidean', return_dist=False)
-    print(node0)
-    graph_area = nodes_proj.unary_union.convex_hull.area
-    return graph_area
+    return {'edge_length_avg10':mean, 'edge_length_std10':sigma}
+
+
+def degree_stats(graph):
+
+    in_degrees = np.array([d for e, d in graph.in_degree])
+    in_mean = in_degrees.mean()
+    in_sigma = in_degrees.std()
+
+    out_degrees = np.array([d for e, d in graph.out_degree])
+    out_mean = out_degrees.mean()
+    out_sigma = out_degrees.std()
+
+    return {'in_degree_avg':in_mean, 'in_degree_std':in_sigma,
+            'out_degree_avg':out_mean, 'out_degree_std':out_sigma}
 
 
 def compute_basic_stats(graph, area):
@@ -42,14 +55,14 @@ def get_graph(place:str):
     G = None
     try:
         G = ox.graph_from_place(place, network_type='drive')
+        G = nx.relabel.convert_node_labels_to_integers(G)
     except Exception as ex:
         print(place, '1: ', ex)
         try:
             G = ox.graph_from_place(place, which_result=2, network_type='drive')
+            G = nx.relabel.convert_node_labels_to_integers(G)
         except Exception as ex:
             print(place, '2: ', ex)
-
-    G = nx.relabel.convert_node_labels_to_integers(G)
     return G
 
 
@@ -64,24 +77,24 @@ def city_statistics(city:str):
     nodes_proj = ox.graph_to_gdfs(G_proj, edges=False)
     nodes_uu = nodes_proj.unary_union
 
-    bbox = box(*nodes_uu.bounds)
-    orig_point: Point = bbox.centroid
-    print('origin ', orig_point)
-
-    node0 = ox.get_nearest_node(G_proj, (orig_point.y, orig_point.x),
-                                method='euclidean', return_dist=False)
-    print('node0 ', node0)
-
     area = nodes_uu.convex_hull.area
-
-    # area = compute_graph_area(G)
     result['area_km'] = area/10e6
-
     bs = compute_basic_stats(G, area)
+    #basic statistics from osmnx
     result.update(bs)
 
-    compute_paths(G_proj, node0)
-    # result.update(compute_extended_stats(G))
+    result.update(edge_length_stats(G))
+    result.update(degree_stats(G))
+
+    bbox = box(*nodes_uu.bounds)
+    orig_point = bbox.centroid
+    node0 = ox.get_nearest_node(G_proj, (orig_point.y, orig_point.x),
+                                method='euclidean', return_dist=False)
+    # print('node0 ', node0)
+    central_paths = compute_paths(G_proj, node0)
+    result['central_sp_mean'] = central_paths[0]
+    result['central_sp_std'] = central_paths[1]
+    result.update(compute_extended_stats(G))
     # print(result)
     return result
 
@@ -100,45 +113,41 @@ def compute_paths(graph, origin):
 
     # for n,d in graph.nodes.items():
     #     print(n,d)
-    path_lengths = G_ig.shortest_paths(source=origin,  weights='length')[0]
+    path_lengths = np.array(G_ig.shortest_paths(source=origin,  weights='length'))
     # paths = nx.shortest_path(G=graph, source=origin, weight='length')
-    path_lengths = path_lengths[~np.isinf(path_lengths).any(axis=1)]
-    print(path_lengths)
-    plt.hist(path_lengths, 100)
-    plt.show()
-    # xa = np.array([[graph.nodes[origin]['x'], graph.nodes[origin]['y']]])
-    # xb = np.array([v for v in map(lambda n: [n['x'], n['y']], graph.nodes.values())])
+    path_lengths = path_lengths[:,~np.isinf(path_lengths).any(axis=0)]
+    # print(path_lengths[0])
+    # plt.hist(path_lengths[0], 50, density=True)
+    # plt.show()
 
-    # edist = scipy.spatial.distance.cdist(xa, xb)[0]
-    # print(edist)
-    # df = pd.DataFrame({'sp_dist':path_lengths, 'eucl_dist':edist})
-    # print(df.head(5))
-    # df['ratio'] = df['sp_dist']/df['eucl_dist']
-    # print(df.head(20))
-    return path_lengths
+    mean = path_lengths.mean()
+    std = path_lengths.std()
+    return mean, std
 
+# def compute_dist(graph, origin):
+#     xa = np.array([[graph.nodes[origin]['x'], graph.nodes[origin]['y']]])
+#     xb = np.array([v for v in map(lambda n: [n['x'], n['y']], graph.nodes.values())])
+#
+#     dist = scipy.spatial.distance.cdist(xa, xb)[0]
+#     print(dist)
+#     df = pd.DataFrame({'sp_dist':path_lengths, 'eucl_dist':dist})
+#     print(df.head(5))
+#    # df['ratio'] = df['sp_dist']/df['eucl_dist']
+#     print(df.head(20))
+#     return dist
 
 
 def prepare_stats(cities, filename):
     results = []
     for c in cities:
         print(c)
-        # G = ox.graph_from_place(c, network_type='drive', simplify=True)
-        # ox.plot_graph(G)
-
-        # df = ox.gdf_from_place(c, which_result=2)
-        # print(df.head(5))
-
         results.append(city_statistics(c))
 
-    print(results)
+    # print(results)
     df = pd.DataFrame(results)
     print(df.head(5))
-    # columns = ['n', 'm', 'k_avg', 'edge_length_total', 'edge_length_avg',
-    #                'node_density_km', 'edge_density_km', 'city', 'area_m2']
-    # df.drop(columns=[c for c in df.columns if c not in columns], inplace=True)
-    df.to_csv(filename)
-    print(df.head(5))
+    df.to_csv(filename, index=False)
+
 
 
 
@@ -161,14 +170,50 @@ if __name__ == '__main__':
                  'Dallas, Texas', 'Detroit, Michigan', 'Memphis, Tennessee']
 
     cities_asia = ['Tokyo', 'Yokohama', 'Osaka',
-                   'Shanghai, China', 'Beijing, China', 'Chongqing, China',
-                   'Mumbai, India', 'Delhi, India', 'Bangalore, India',
-                   'Bangkok, Thailand', 'Singapore']
+                   'Shanghai', 'Beijing', 'Chongqing',
+                   'Mumbai', 'Delhi', 'Bangalore',
+                   'Bangkok', 'Singapore']
+    all = {'europe': cities_eu, 'us': cities_us, }
 
-    all = {'europe': cities_eu, 'us': cities_us, 'asia': cities_asia}
+    # ox.config(use_cache=True)
 
     # for name, cities in all.items():
-    # prepare_stats(cities_asia, 'asia_basic.csv')
+    #     prepare_stats(cities, name + '.csv')
 
-    ox.config(use_cache=True, log_console=True)
-    city_statistics('Prague')
+    df =  pd.read_csv('graph_statistics2.csv', index_col=None)
+    print(df.columns)
+    df.drop(columns=['edge_length_avg_y'], inplace=True)
+    df.rename(columns={'n':'num_nodes','m':'num_edges',
+                       'edge_length_avg_x':'edge_length_avg',
+                       'k_avg':'degree_avg'}, inplace=True)
+    df['degree_std'] = df['in_degree_std']+df['out_degree_std']
+    df.to_csv('graphs1.csv', index=False)
+    df.drop(columns=['in_degree_avg', 'in_degree_std', 'out_degree_avg', 'out_degree_std'], inplace=True)
+    df.to_csv('graph_statistics.csv', index=False)
+    print(df.columns)
+    print(df.head(5))
+
+    # df1 = pd.read_csv('europe.csv', index_col=None)
+    # df2 = pd.read_csv('us.csv', index_col=None)
+    # print(df1.info, df2.info)
+    # df_basic = pd.concat([df1, df2], axis=0)
+    # df_basic.drop(columns=['Unnamed: 0'], inplace=True)
+    # print(df_basic.head(5))
+    #
+    # df1 = pd.read_csv('europe_sp.csv', index_col=None)
+    # df2 = pd.read_csv('us_sp.csv', index_col=None)
+    # df_sp = pd.concat([df1, df2], axis=0)
+    # df_sp.drop(columns=['Unnamed: 0'], inplace=True)
+    # print(df_sp.head(5))
+    #
+    # df = pd.merge(df_basic, df_sp, on='city')
+    # df.dropna(axis=0, inplace=True)
+    # print(df.head(5))
+    # df.to_csv('graph_statistics.csv', index=False)
+    # df = df[df['n'] >= 8000]
+
+    df = pd.read_csv('graph_statistics.csv', index_col=None)
+    for col in df.columns:
+        if col == 'city': continue
+        ax = df.hist(column=col, bins=10)
+        plt.show()
