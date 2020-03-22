@@ -6,6 +6,53 @@ from matplotlib import pyplot as plt
 import scipy.stats as stats
 
 
+if __name__ == '__main__':
+
+
+    # ox.config(use_cache=True)
+
+    # for name, cities in all.items():
+    #     prepare_stats(cities, name + '.csv')
+
+    df =  pd.read_csv('graph_statistics2.csv', index_col=None)
+    print(df.columns)
+    df.drop(columns=['edge_length_avg_y'], inplace=True)
+    df.rename(columns={'n':'num_nodes','m':'num_edges',
+                       'edge_length_avg_x':'edge_length_avg',
+                       'k_avg':'degree_avg'}, inplace=True)
+    df['degree_std'] = df['in_degree_std']+df['out_degree_std']
+    df.to_csv('graphs1.csv', index=False)
+    df.drop(columns=['in_degree_avg', 'in_degree_std', 'out_degree_avg', 'out_degree_std'], inplace=True)
+    df.to_csv('graph_statistics.csv', index=False)
+    print(df.columns)
+    print(df.head(5))
+
+    # df1 = pd.read_csv('europe.csv', index_col=None)
+    # df2 = pd.read_csv('us.csv', index_col=None)
+    # print(df1.info, df2.info)
+    # df_basic = pd.concat([df1, df2], axis=0)
+    # df_basic.drop(columns=['Unnamed: 0'], inplace=True)
+    # print(df_basic.head(5))
+    #
+    # df1 = pd.read_csv('europe_sp.csv', index_col=None)
+    # df2 = pd.read_csv('us_sp.csv', index_col=None)
+    # df_sp = pd.concat([df1, df2], axis=0)
+    # df_sp.drop(columns=['Unnamed: 0'], inplace=True)
+    # print(df_sp.head(5))
+    #
+    # df = pd.merge(df_basic, df_sp, on='city')
+    # df.dropna(axis=0, inplace=True)
+    # print(df.head(5))
+    # df.to_csv('graph_statistics.csv', index=False)
+    # df = df[df['n'] >= 8000]
+
+    df = pd.read_csv('graph_statistics.csv', index_col=None)
+    for col in df.columns:
+        if col == 'city': continue
+        ax = df.hist(column=col, bins=10)
+        plt.show()
+
+
 
 def edge_length(graph):
 
