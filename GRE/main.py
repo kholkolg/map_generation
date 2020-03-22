@@ -102,9 +102,9 @@ def statisitcs(G, plot=False):
     result['area_km'] = area / 1e6
     result['num_nodes'] = G.number_of_nodes()
     result['num_edges'] = G.number_of_edges()
-    result['node_density'] = result['num_nodes'] / result['area_km']
+    result['node_density_km'] = result['num_nodes'] / result['area_km']
     result['edge_length_total'] = result['edge_length_avg']*result['num_edges']
-    result['edge_density'] = result['edge_length_total'] / result['area_km']
+    result['edge_density_km'] = result['edge_length_total'] / result['area_km']
     origin = compute_center(gdf_nodes)
     # print('origin ', origin)
     node0 = ox.get_nearest_node(G, (origin.y, origin.x),
@@ -115,8 +115,7 @@ def statisitcs(G, plot=False):
     result['central_sp_std'] = central_paths[1]
     result['degree_avg'] = result['in_degree_avg'] + result['out_degree_avg']
     result['degree_std'] = result['in_degree_std'] + result['out_degree_std']
-    if plot:
-        plot_network(edge_list)
+
     return result
 
 
@@ -127,23 +126,38 @@ if __name__ == '__main__':
     # print(len(G.nodes))
     results = []
 
-    # for i in range(1,10):
-    #     for j in range(1,10):
-    #         filename = 'cell_%s_%s'%(i,j)
-    #         a = 0.1*i
-    #         b = 0.1*j
-    gre_params = [4000, 6000, 110, 90, 0.4, 0.6]
-    edge_list = gre(*gre_params)
-    result = {'city':'gre%s_%s_%s_%s_%s_%s'% tuple(gre_params)}
-    # plot_network(edge_list, filename)
-    G = edgelist_to_graph(edge_list)
-    result.update(statisitcs(G, True))
 
+    for i in range( 9):
+        for j in range(5, 9):
+            p = 0.1*i
+            q = 0.1*j
+
+            gre_params = (4000, 6000, 110, 90, p, q)
+            result = {'city':'gre%s_%s_%s_%s_%.1f_%.1f'% gre_params}
+
+            edge_list = gre(*gre_params)
+            # plot_network(edge_list, filename)
+            G = edgelist_to_graph(edge_list)
+            result.update(statisitcs(G))
+            results.append(result)
+
+    df_gre = pd.DataFrame(results)
+    print(df_gre.head(5))
+
+    # df_gre = pd.read_csv('gre_59.csv', index_col=None)
+    df_gre.drop(columns=['in_degree_avg', 'in_degree_std', 'out_degree_avg', 'out_degree_std'], inplace=True)
+    df_real = pd.read_csv('graph_statistics.csv', index_col=None)
+    if 'Unnamed: 0' in df_real.columns:
+        df_real.drop(columns=['Unnamed: 0'], inplace=True)
+    df = pd.concat([df_gre, df_real], axis=0)
+
+    print(df.head(5))
+    df.to_csv('gre_test.csv', index=False)
     #         results.append(result)
     #
     # df = pd.DataFrame(results)
     # print(df.head(5))
     # df.to_csv('cell66.csv', index=False)
 
-    for k, v in result.items():
-                print(k, ' - ', v)
+    # for k, v in result.items():
+    #             print(k, ' - ', v)
