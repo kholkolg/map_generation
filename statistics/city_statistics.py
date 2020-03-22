@@ -49,7 +49,7 @@ def city_statistics(city:str):
     nodes_proj = ox.graph_to_gdfs(G_proj, edges=False)
 
     area = compute_area_m(nodes_proj)
-    result['area_km'] = area/10e6
+    result['area_km'] = area/1e6
     bs = compute_basic_stats(G, area)
     #basic statistics from osmnx
     result.update(bs)
