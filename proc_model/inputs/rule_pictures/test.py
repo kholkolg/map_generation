@@ -1,8 +1,5 @@
 import matplotlib.image as img
-import random
 import numpy as np
-
-S=10
 
 
 def make_tiles(size):
@@ -15,25 +12,30 @@ def make_tiles(size):
     return tiles
 
 
-# print(dens.shape)
+def make_picture(color_map, tiles):
 
-def make_rule_image(height, length, tile):
+    rows = [np.concatenate([tiles[c] for c in r], axis=1) for r in color_map]
+    pic = np.concatenate(rows, axis=0)
+    return pic
 
-    rows = height//tile + 1
-    cols = length//tile + 1
+
+#TODO probabilities
+def make_rule_image(height, length, tile, filename):
+
+    rows = height//tile+1
+    cols = length//tile+1
 
     color_map = np.random.choice([0, 1, 2], size=(rows, cols), replace=True, p=(0.35, 0.3, 0.35))
-    print(color_map)
+    # print(color_map)
 
     tiles = make_tiles(tile)
-    pic = np.array([[tiles[c] for c in r] for r in color_map])
-    pic = pic.reshape((rows * tile * cols * tile, 3))
-    # print(pic1.shape)
+    pic = make_picture(color_map, tiles)
+    print(pic.shape)
     pic = pic.reshape((rows * tile, cols * tile, 3))
     # print(pic.shape)
-    #
-    img.imsave('tiles_large.png', pic)
+    img.imsave(filename, pic)
 
-    # print(red.dtype)
 
-make_rule_image(4000, 4000, 100)
+if __name__ == '__main__':
+    #TODO input args (size, granularity, probabilities or prevailing type (grid, radial, organic)
+    make_rule_image(1000, 1000, 100,'tiles_large.png')
