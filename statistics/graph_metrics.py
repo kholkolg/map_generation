@@ -1,8 +1,10 @@
+import geopandas as gpd
 import numpy as np
 import networkx as nx
+import osmnx
 from matplotlib import pyplot as plt
 import igraph as ig
-from shapely.geometry import box
+from shapely.geometry import box, Point
 import osmnx as ox
 
 
@@ -57,3 +59,31 @@ def compute_center(nodes):
     return bbox.centroid
 
 
+def compute_statisitcs(G, plot=False):
+
+    result = edge_length_stats(G)
+    result.update(degree_stats(G))
+    nodes, data = zip(*G.nodes(data=True))
+    gdf_nodes = gpd.GeoDataFrame(list(data), index=nodes)
+    gdf_nodes['geometry'] = gdf_nodes.apply(lambda row: Point(row['x'], row['y']), axis=1)
+    gdf_nodes.set_geometry('geometry', inplace=True)
+
+    area = compute_area_m(gdf_nodes)
+    result['area_km'] = area / 1e6
+    result['num_nodes'] = G.number_of_nodes()
+    result['num_edges'] = G.number_of_edges()
+    result['node_density_km'] = result['num_nodes'] / result['area_km']
+    result['edge_length_total'] = result['edge_length_avg']*result['num_edges']
+    result['edge_density_km'] = result['edge_length_total'] / result['area_km']
+    origin = compute_center(gdf_nodes)
+    # print('origin ', origin)
+    node0 = ox.get_nearest_node(G, (origin.y, origin.x),
+                                method='euclidean', return_dist=False)
+    # print('node0 ', node0)
+    central_paths = compute_paths(G, node0)
+    result['central_sp_mean'] = central_paths[0]
+    result['central_sp_std'] = central_paths[1]
+    result['degree_avg'] = result['in_degree_avg'] + result['out_degree_avg']
+    result['degree_std'] = result['in_degree_std'] + result['out_degree_std']
+
+    return result
