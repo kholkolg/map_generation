@@ -20,7 +20,15 @@ def make_picture(color_map, tiles):
 
 
 #TODO probabilities
-def make_rule_image(height, length, tile, filename):
+def make_rule_image(height=1000, length=1000, tile=200, filename='my_rules.png'):
+    """
+
+    :param height:
+    :param length:
+    :param tile:
+    :param filename:
+    :return:
+    """
 
     rows = height//tile+1
     cols = length//tile+1
@@ -30,10 +38,11 @@ def make_rule_image(height, length, tile, filename):
 
     tiles = make_tiles(tile)
     pic = make_picture(color_map, tiles)
-    print(pic.shape)
+    # print(pic.shape)
     pic = pic.reshape((rows * tile, cols * tile, 3))
     # print(pic.shape)
     img.imsave(filename, pic)
+    return pic
 
 
 if __name__ == '__main__':
