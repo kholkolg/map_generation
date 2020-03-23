@@ -8,23 +8,13 @@ from matplotlib.collections import LineCollection
 def prepare_output(vertex_list):
 
     # print(node_map)
-
-    # node_map = {vertex_list[i].id: i for i in range(len(vertex_list))}
     edges = []
     for i in range(len(vertex_list)):
         vertex_list[i].id = i
     for v in vertex_list:
-        # new_id = node_map[v.id]
         for u in v.neighbours:
             edges.append([v.coords, u.coords])
-            # edges.append((new_id, node_map[u.id]))
-    # print('number of edges ', len(edges))
-    #
-    # G = nx.DiGraph()
-    # nodes = [(node_map[v.id], {'x': v[0], 'y': v[1]}) for v in vertex_list]
-    # G.add_nodes_from(nodes)
-    # G.add_edges_from(edges)
-    # # nx.draw(G)
+
     return edges
 
 
@@ -45,20 +35,8 @@ def save_vertexlist(vertex_list, name="output", savefig=1):
         print("Specified output file doesn't exist: {0}".format(error))
         return 1
 
-    # if savefig == 1:
+
     print("Figure is being saved as " + name + ".png")
-
-
-    # for k in vertex_list:
-    #     for n in k.neighbours:
-    #         col = 'black'
-    #         width = 1
-    #         if n.minor_road or k.minor_road:
-    #             col = 'blue'
-    #             width = 0.5
-    #
-    #         plt.plot([n.coords[0], k.coords[0]], [n.coords[1], k.coords[1]],
-    #                     color=col,linewidth=width)
 
     lc = LineCollection(edges, linewidths=0.5, colors='black')
     fig, ax = plt.subplots()
@@ -72,18 +50,6 @@ def save_vertexlist(vertex_list, name="output", savefig=1):
     return 0
 
 
-def reconstruct(path):
-
-    import os
-    import procedural_city_generation
-    fullpath = os.path.dirname(procedural_city_generation.__file__) + "/temp/" + path
-
-    import pickle
-    with open(fullpath, 'rb') as f:
-        vertex_list = pickle.loads(f.read())
-        for i, v in enumerate(vertex_list):
-            v.selfindex = i
-        return vertex_list
 
 
 
