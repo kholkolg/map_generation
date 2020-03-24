@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5914275b-2727-4ad6-9caf-bbf7b4599fab" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/proc_model/check.py" afterPath="$PROJECT_DIR$/proc_model/check.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +16,11 @@
       <file leaf-file-name="check.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proc_model/check.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="91" column="4" lean-forward="false" selection-start-line="91" selection-start-column="5" selection-end-line="92" selection-end-column="68" />
+            <state relative-caret-position="388">
+              <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
               <folding>
                 <element signature="e#25#61#0" expanded="true" />
-                <element signature="e#4217#4842#0" expanded="false" />
+                <element signature="e#3724#4349#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -993,11 +992,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/proc_model/check.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="91" column="4" lean-forward="false" selection-start-line="91" selection-start-column="5" selection-end-line="92" selection-end-column="68" />
+        <state relative-caret-position="388">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding>
             <element signature="e#25#61#0" expanded="true" />
-            <element signature="e#4217#4842#0" expanded="false" />
+            <element signature="e#3724#4349#0" expanded="false" />
           </folding>
         </state>
       </provider>

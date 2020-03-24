@@ -70,27 +70,18 @@ def check(suggested_vertex, neighbour, newfront):
     # Find the best solution - as in the closest intersection
     bestsol, solvertex = find_best_solution(neighbour, nearvertex)
 
-
-    #Distances[0] is the distance to the nearest vertex:
-    if distances[0] < singleton.min_distance:
-
-        #If the nearest vertex is not a neighbor
-        if nearvertex[0] not in neighbour.neighbours:
-
-            # If there is at least one solution, intersect that solution
-            # See docstring #3 and #4
-            if solvertex is not None:
-                reconnect(suggested_vertex, neighbour, bestsol, solvertex)
-                return newfront
-            else:
-                #If there is no solution, the Vertex is clear
-                # print('else ', nearvertex[0], neighbour)
-                nearvertex[0].connect(neighbour)
-        return newfront
-
     if solvertex is not None:
         reconnect(suggested_vertex, neighbour, bestsol, solvertex)
         return newfront
+
+
+    #Distances[0] is the distance to the nearest vertex:
+    if distances[0] < singleton.min_distance:
+        #If the nearest vertex is not a neighbor
+        if nearvertex[0] not in neighbour.neighbours:
+            nearvertex[0].connect(neighbour)
+        return newfront
+
 
     #If the Vertex is clear to go, add him and return newfront.
     suggested_vertex.connect(neighbour)
