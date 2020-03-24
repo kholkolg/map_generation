@@ -15,7 +15,7 @@ import random
 
 random.seed(42)
 np.random.seed(42)
-singl = Singleton("roadmap")
+singleton = Singleton("roadmap")
 
 
 def generate_map():
@@ -108,7 +108,7 @@ if __name__ == '__main__':
     results = []
     for i in range(5):
         singleton = config()
-        singleton.min_distance = 20
+        # singleton.min_distance = 20
         print(singleton.min_distance)
         vlist = generate_map()
         graph = to_nx(vlist)

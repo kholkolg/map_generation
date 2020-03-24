@@ -5,6 +5,7 @@ from proc_model.additional_stuff.Singleton import Singleton
 
 singleton=Singleton("roadmap")
 
+
 def getRule(vertex):
     """
     Gets the correct growth_rule for a Vertex, depending on that objects'
@@ -25,26 +26,28 @@ def getRule(vertex):
     # print('rule ', vertex)
     #
 
-    x = (vertex.coords[0]+singleton.border[0])/(singleton.border[0]*2)
-    y = (vertex.coords[1]+singleton.border[1])/(singleton.border[1]*2)
+    # x = (vertex.coords[0]+singleton.border[0])/(singleton.border[0]*2)
+    # y = (vertex.coords[1]+singleton.border[1])/(singleton.border[1]*2)
     # print('x=',x,', y=',y)
 
-    x_, y_ = 0, 0
-    try:
-        x_ = int(singleton.img2.shape[0]*(1-y))
-    except ValueError as err:
-        print(vertex, err)
-    try:
-        y_ = int(singleton.img2.shape[1]*x)
-    except ValueError as err:
-        print(vertex, err)
-
+    # x_, y_ = 0, 0
+    # try:
+    #     x_ = int(singleton.img2.shape[0]*(1-y))
+    # except ValueError as err:
+    #     print(vertex, err)
+    # try:
+    #     y_ = int(singleton.img2.shape[1]*x)
+    # except ValueError as err:
+    #     print(vertex, err)
+    x, y = vertex.coords
+    x_, y_ = vertex.coords
+    # print('x, y ', x_, y_)
     # s2 = s0*(1-y)
     # print(s2, singleton.img2.shape[0]-y*singleton.img2.shape[0])
     # print(singleton.img2[s2])
     # im = singleton.img2[x_][y_][0]
-    population_density = np.sqrt((singleton.img2[x_][y_][0]))
-    # print('density ', population_density)
+    population_density = np.sqrt((singleton.img2[int(x_)][int(y_)][0]))
+    print('density ', population_density)
 
     if vertex.seed:
         return (4, None, population_density)
@@ -52,12 +55,14 @@ def getRule(vertex):
 
     if not vertex.minor_road:
         #Finds the relative position of the vertex on the growth_rule_image
-        intrule=np.argmax(singleton.img[int(singleton.img.shape[0]-y*singleton.img.shape[0])][int(x*singleton.img.shape[1])])
+        # print('pixel ', np.argmax(singleton.img[int(x)][int(y)]))
+        # intrule=np.argmax(singleton.img[int(singleton.border[0] - y*singleton.border[0])][int(x*singleton.border[1])])
+        intrule = np.argmax(singleton.img[int(x)][int(y)])
         z=(0, 0)
 
         #If the rule is radial, find the closest radial center
         if intrule == 2:
-            z=singleton.center[np.argmin(np.linalg.norm(vertex.coords-singleton.center, axis=1))]
+            z = singleton.center[np.argmin(np.linalg.norm(vertex.coords - singleton.center, axis=1))]
         return (intrule, z, population_density)
     else:
         return (3, None, population_density)

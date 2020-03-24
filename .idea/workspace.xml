@@ -3,14 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="5914275b-2727-4ad6-9caf-bbf7b4599fab" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/proc_model/additional_stuff/IOHelper.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proc_model/additional_stuff/readimages.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/proc_model/additional_stuff/clean_tools.py" afterPath="" />
       <change beforePath="$PROJECT_DIR$/proc_model/config.py" afterPath="$PROJECT_DIR$/proc_model/config.py" />
-      <change beforePath="$PROJECT_DIR$/proc_model/growth_rules/seed.py" afterPath="$PROJECT_DIR$/proc_model/growth_rules/seed.py" />
+      <change beforePath="$PROJECT_DIR$/proc_model/config_functions/input_image_setup.py" afterPath="$PROJECT_DIR$/proc_model/config_functions/input_image_setup.py" />
+      <change beforePath="$PROJECT_DIR$/proc_model/config_functions/rule_image.py" afterPath="$PROJECT_DIR$/proc_model/config_functions/generate_image.py" />
+      <change beforePath="$PROJECT_DIR$/proc_model/getRule.py" afterPath="$PROJECT_DIR$/proc_model/getRule.py" />
+      <change beforePath="$PROJECT_DIR$/proc_model/getSuggestion.py" afterPath="$PROJECT_DIR$/proc_model/getSuggestion.py" />
       <change beforePath="$PROJECT_DIR$/proc_model/inputs/roadmap.conf" afterPath="$PROJECT_DIR$/proc_model/inputs/roadmap.conf" />
-      <change beforePath="$PROJECT_DIR$/proc_model/iteration.py" afterPath="$PROJECT_DIR$/proc_model/iteration.py" />
       <change beforePath="$PROJECT_DIR$/proc_model/main.py" afterPath="$PROJECT_DIR$/proc_model/main.py" />
-      <change beforePath="$PROJECT_DIR$/proc_model/rule_image.py" afterPath="$PROJECT_DIR$/proc_model/config_functions/rule_image.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,8 +24,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proc_model/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="18" />
+            <state relative-caret-position="204">
+              <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="37" />
               <folding>
                 <element signature="e#46#105#0" expanded="true" />
               </folding>
@@ -33,71 +33,79 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="seed.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proc_model/growth_rules/seed.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="input_image_setup.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="input_image_setup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proc_model/config_functions/input_image_setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="28" column="35" lean-forward="false" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="209">
+              <caret line="38" column="35" lean-forward="false" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="iteration.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proc_model/iteration.py">
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proc_model/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="30" />
-              <folding />
+            <state relative-caret-position="418">
+              <caret line="78" column="34" lean-forward="false" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
+              <folding>
+                <element signature="e#25#43#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="grid.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proc_model/growth_rules/grid.py">
+      <file leaf-file-name="generate_image.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proc_model/config_functions/generate_image.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="342">
+              <caret line="36" column="75" lean-forward="false" selection-start-line="36" selection-start-column="75" selection-end-line="36" selection-end-column="75" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graph_metrics.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/statistics/graph_metrics.py">
+      <file leaf-file-name="getSuggestion.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proc_model/getSuggestion.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="61" column="4" lean-forward="false" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
-              <folding />
+            <state relative-caret-position="-4">
+              <caret line="28" column="8" lean-forward="false" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+              <folding>
+                <element signature="e#24#62#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GRE/main.py">
+      <file leaf-file-name="getRule.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proc_model/getRule.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="112" column="109" lean-forward="false" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="109" />
-              <folding />
+            <state relative-caret-position="338">
+              <caret line="64" column="74" lean-forward="false" selection-start-line="64" selection-start-column="74" selection-end-line="64" selection-end-column="74" />
+              <folding>
+                <element signature="e#25#43#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="roadmap.conf" pinned="false" current-in-tab="false">
+      <file leaf-file-name="roadmap.conf" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proc_model/inputs/roadmap.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="4" />
+            <state relative-caret-position="437">
+              <caret line="113" column="15" lean-forward="false" selection-start-line="113" selection-start-column="15" selection-end-line="113" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Singleton.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/Singleton.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="703">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -141,22 +149,24 @@
         <option value="$PROJECT_DIR$/GRE/main.py" />
         <option value="$PROJECT_DIR$/statistics/graph_metrics.py" />
         <option value="$PROJECT_DIR$/proc_model/Vertex.py" />
-        <option value="$PROJECT_DIR$/proc_model/config_functions/input_image_setup.py" />
         <option value="$PROJECT_DIR$/proc_model/additional_stuff/Singleton.py" />
-        <option value="$PROJECT_DIR$/proc_model/getSuggestion.py" />
-        <option value="$PROJECT_DIR$/proc_model/getRule.py" />
         <option value="$PROJECT_DIR$/proc_model/additional_stuff/randommap.py" />
         <option value="$PROJECT_DIR$/statistics/test.ipynb" />
         <option value="$PROJECT_DIR$/proc_model/check.py" />
         <option value="$PROJECT_DIR$/proc_model/iteration.py" />
-        <option value="$PROJECT_DIR$/proc_model/config.py" />
-        <option value="$PROJECT_DIR$/proc_model/inputs/roadmap.conf" />
-        <option value="$PROJECT_DIR$/proc_model/main.py" />
         <option value="$PROJECT_DIR$/proc_model/growth_rules/grid.py" />
         <option value="$PROJECT_DIR$/proc_model/growth_rules/minor_road.py" />
         <option value="$PROJECT_DIR$/proc_model/growth_rules/organic.py" />
         <option value="$PROJECT_DIR$/proc_model/growth_rules/radial.py" />
         <option value="$PROJECT_DIR$/proc_model/growth_rules/seed.py" />
+        <option value="$PROJECT_DIR$/proc_model/config_functions/create_rule_image.py" />
+        <option value="$PROJECT_DIR$/proc_model/config.py" />
+        <option value="$PROJECT_DIR$/proc_model/main.py" />
+        <option value="$PROJECT_DIR$/proc_model/getSuggestion.py" />
+        <option value="$PROJECT_DIR$/proc_model/getRule.py" />
+        <option value="$PROJECT_DIR$/proc_model/config_functions/generate_image.py" />
+        <option value="$PROJECT_DIR$/proc_model/config_functions/input_image_setup.py" />
+        <option value="$PROJECT_DIR$/proc_model/inputs/roadmap.conf" />
       </list>
     </option>
   </component>
@@ -220,6 +230,12 @@
             <path>
               <item name="MapGeneration" type="b2602c69:ProjectViewProjectNode" />
               <item name="map_generation" type="462c0819:PsiDirectoryNode" />
+              <item name="proc_model" type="462c0819:PsiDirectoryNode" />
+              <item name="inputs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MapGeneration" type="b2602c69:ProjectViewProjectNode" />
+              <item name="map_generation" type="462c0819:PsiDirectoryNode" />
               <item name="statistics" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -235,7 +251,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -252,6 +267,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -389,7 +405,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="MapGeneration" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/proc_model/config_functions/rule_image.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/proc_model/config_functions/generate_image.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -499,12 +515,12 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="Python.main" />
-      <item index="1" class="java.lang.String" itemvalue="Python.main (1)" />
-      <item index="2" class="java.lang.String" itemvalue="Python.planar" />
-      <item index="3" class="java.lang.String" itemvalue="Python.main (2)" />
-      <item index="4" class="java.lang.String" itemvalue="Python.test" />
-      <item index="5" class="java.lang.String" itemvalue="Jupyter Notebook.MapGeneration" />
+      <item index="0" class="java.lang.String" itemvalue="Jupyter Notebook.MapGeneration" />
+      <item index="1" class="java.lang.String" itemvalue="Python.main" />
+      <item index="2" class="java.lang.String" itemvalue="Python.main (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Python.planar" />
+      <item index="4" class="java.lang.String" itemvalue="Python.main (2)" />
+      <item index="5" class="java.lang.String" itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list size="5">
@@ -542,39 +558,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="-4" width="1853" height="1084" extended-state="6" />
+    <frame x="66" y="-11" width="1855" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24623656" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2580645" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.257886" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37311828" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2580645" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18981738" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24958494" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21075268" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2580645" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18760376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24958494" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -628,18 +633,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/proc_model/temp/test20km_70_densitymap.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/inputs/rule_pictures/tile.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proc_model/inputs/rule_pictures/tiles1.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -654,7 +647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4883">
           <caret line="257" column="4" lean-forward="false" selection-start-line="257" selection-start-column="4" selection-end-line="257" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -735,27 +727,12 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/config_functions/grid.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/LinalgTools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/config_functions/grid.py" />
+    <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/LinalgTools.py" />
     <entry file="file://$PROJECT_DIR$/proc_model/config_functions/find_radial_centers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -763,56 +740,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/Param.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/Singleton.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#17#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/randommap.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/Param.py" />
+    <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/randommap.py" />
     <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/clean_tools.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1578">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/getSuggestion.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/config_functions/rule_image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -828,7 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -836,7 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="236" column="40" lean-forward="false" selection-start-line="236" selection-start-column="40" selection-end-line="236" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -844,33 +778,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="563">
           <caret line="1667" column="0" lean-forward="false" selection-start-line="1667" selection-start-column="0" selection-end-line="1667" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/IOHelper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="57" selection-end-column="76" />
-          <folding>
-            <element signature="e#25#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/IOHelper.py" />
     <entry file="file://$PROJECT_DIR$/proc_model/Vertex.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -878,31 +793,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="112" column="109" lean-forward="false" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="109" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/statistics/graph_metrics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="61" column="4" lean-forward="false" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/inputs/roadmap.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/getRule.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-622">
-          <caret line="3" column="15" lean-forward="false" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -916,13 +806,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/main.py">
+    <entry file="file://$PROJECT_DIR$/proc_model/growth_rules/minor_road.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="18" />
-          <folding>
-            <element signature="e#46#105#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="57">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/growth_rules/organic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/growth_rules/radial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/growth_rules/seed.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/readimages.py" />
+    <entry file="file://$PROJECT_DIR$/statistics/graph_metrics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="61" column="4" lean-forward="false" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -930,7 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -942,50 +857,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/growth_rules/minor_road.py">
+    <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/Singleton.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="703">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/growth_rules/organic.py">
+    <entry file="file://$PROJECT_DIR$/proc_model/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="418">
+          <caret line="78" column="34" lean-forward="false" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
+          <folding>
+            <element signature="e#25#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/growth_rules/radial.py">
+    <entry file="file://$PROJECT_DIR$/proc_model/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="204">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="37" />
+          <folding>
+            <element signature="e#46#105#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/growth_rules/seed.py">
+    <entry file="file://$PROJECT_DIR$/proc_model/getSuggestion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="-4">
+          <caret line="28" column="8" lean-forward="false" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+          <folding>
+            <element signature="e#24#62#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/readimages.py">
+    <entry file="file://$PROJECT_DIR$/proc_model/getRule.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-261">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="338">
+          <caret line="64" column="74" lean-forward="false" selection-start-line="64" selection-start-column="74" selection-end-line="64" selection-end-column="74" />
+          <folding>
+            <element signature="e#25#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/proc_model/config_functions/input_image_setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="28" column="35" lean-forward="false" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+        <state relative-caret-position="209">
+          <caret line="38" column="35" lean-forward="false" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/test_fixed_dens.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/test_fixed.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/config_functions/generate_image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="36" column="75" lean-forward="false" selection-start-line="36" selection-start-column="75" selection-end-line="36" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/inputs/roadmap.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="113" column="15" lean-forward="false" selection-start-line="113" selection-start-column="15" selection-end-line="113" selection-end-column="15" />
           <folding />
         </state>
       </provider>

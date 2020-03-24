@@ -8,6 +8,9 @@ import proc_model
 from proc_model.additional_stuff.Singleton import Singleton
 from proc_model.config_functions.find_radial_centers import find_radial_centers
 from proc_model.config_functions.input_image_setup import input_image_setup
+from scipy.spatial import cKDTree
+
+
 
 
 class Global_Lists:
@@ -15,6 +18,7 @@ class Global_Lists:
         self.vertex_list=[]
         self.vertex_queue=[]
         self.tree=None
+
 
 def config():
     """
@@ -32,19 +36,17 @@ def config():
         Singleton with the Global Lists which will be altered at runtime
     """
 
-
     print('config')
-    path=os.path.dirname(proc_model.__file__)
+    # path=os.path.dirname(proc_model.__file__)
 
-    singleton=Singleton("roadmap")
 
     #Creates Singleton-Variables object from namedtuple
-
+    singleton = Singleton("roadmap")
 
     #Creates Vertex objects from coordinates
     n = 1 #singleton.min_distance/2
-    singleton.axiom=[Vertex(np.array([n*float(v[0]), n*float(v[1])])) for v in singleton.axiom]
-    singleton.border=np.array([singleton.border_x, singleton.border_y])
+    singleton.axiom = [Vertex(np.array([n*float(v[0]), n*float(v[1])])) for v in singleton.axiom]
+    singleton.border = np.array([singleton.border_x, singleton.border_y])
     print('borders ', singleton.border)
 
 
@@ -52,14 +54,16 @@ def config():
     singleton.maxLength=max(singleton.radiallMax, singleton.gridlMax, singleton.organiclMax,
                             singleton.minor_roadlMax, singleton.seedlMax)
 
-    singleton.img, singleton.img2=input_image_setup(singleton.rule_image_name, singleton.density_image_name)
+    singleton.img, singleton.img2 = input_image_setup(singleton.rule_image_name,
+                                                    singleton.density_image_name)
 
     # with open(path+"/temp/"+singleton.output_name+"_densitymap.txt", 'w') as f:
     #     f.write(singleton.density_image_name.split(".")[0]+"diffused.png")
 
 
-    singleton.center=find_radial_centers(singleton)
-    singleton.center= [np.array([singleton.border[0]*((x[1]/singleton.img.shape[1])-0.5)*2, singleton.border[1]*(((singleton.img.shape[0]-x[0])/singleton.img.shape[0])-0.5)*2]) for x in singleton.center]
+    singleton.center = find_radial_centers(singleton)
+    print(singleton.center)
+    singleton.center = [np.array([singleton.border[0]*((x[1]/singleton.img.shape[1])-0.5)*2, singleton.border[1]*(((singleton.img.shape[0]-x[0])/singleton.img.shape[0])-0.5)*2]) for x in singleton.center]
 
     # from procedural_city_generation.roadmap.config_functions.setup_heightmap import setup_heightmap
     # setup_heightmap(singleton, path)
@@ -69,28 +73,29 @@ def config():
     singleton.global_lists.vertex_list.extend(singleton.axiom)
     singleton.global_lists.coordslist=[x.coords for x in singleton.global_lists.vertex_list]
 
-    def setNeighbours(vertex):
-        """ Correctly Sets up the neighbors for a vertex from the axiom.
-
-        Parameters
-        ----------
-        vertex : vertex Object
-        """
-
-        d=np.inf
-        neighbour=None
-        for v in singleton.axiom:
-            if v is not vertex:
-                dneu=np.linalg.norm(v.coords-vertex.coords)
-                if dneu<d:
-                    d=dneu
-                    neighbour=v
-        vertex.neighbours=[neighbour]
-
     for k in singleton.axiom:
-        setNeighbours(k)
+        setNeighbours(k, singleton.axiom)
 
-    from scipy.spatial import cKDTree
-    singleton.global_lists.tree=cKDTree(singleton.global_lists.coordslist, leafsize=160)
+    singleton.global_lists.tree = cKDTree(singleton.global_lists.coordslist, leafsize=160)
 
     return singleton
+
+
+def setNeighbours(vertex, axiom):
+    """
+    Correctly Sets up the neighbors for a vertex from the axiom.
+
+    Parameters
+    ----------
+    vertex : vertex Object
+    """
+
+    d=np.inf
+    neighbour=None
+    for v in axiom:
+        if v is not vertex:
+            dneu=np.linalg.norm(v.coords-vertex.coords)
+            if dneu<d:
+                d=dneu
+                neighbour=v
+    vertex.neighbours=[neighbour]

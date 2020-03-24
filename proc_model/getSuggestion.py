@@ -26,7 +26,7 @@ def getSuggestion(vertex):
     rule= getRule(vertex)
     #Grid
     # if rule[0] == 0:
-    l=grid(vertex, rule[2])
+    l = grid(vertex, rule[2])
     for x in l:
         # print('grid ',x)
         # if x != vertex:
