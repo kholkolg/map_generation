@@ -67,58 +67,40 @@ def check(suggested_vertex, neighbour, newfront):
     max_index = len(singleton.global_lists.vertex_list)
     nearvertex = [singleton.global_lists.vertex_list[i] for i in nearvertex if i < max_index]
 
+    # Find the best solution - as in the closest intersection
+    bestsol, solvertex = find_best_solution(neighbour, nearvertex)
+
+
     #Distances[0] is the distance to the nearest vertex:
     if distances[0] < singleton.min_distance:
 
         #If the nearest vertex is not a neighbor
         if nearvertex[0] not in neighbour.neighbours:
 
-            #Find the best solution - as in the closest intersection
-            bestsol, solvertex = find_best_solution(neighbour, nearvertex)
-
             # If there is at least one solution, intersect that solution
             # See docstring #3 and #4
             if solvertex is not None:
-                solvertex[1].neighbours.remove(solvertex[0])
-                solvertex[0].neighbours.remove(solvertex[1])
-                newk=Vertex(neighbour.coords+bestsol*(nearvertex[0].coords-neighbour.coords))
-                singleton.global_lists.vertex_list.append(newk)
-                singleton.global_lists.coordslist.append(newk.coords)
-                singleton.global_lists.tree=cKDTree(singleton.global_lists.coordslist, leafsize=160)
-                neighbour.connect(newk)
-                solvertex[1].connect(newk)
-                solvertex[0].connect(newk)
+                reconnect(suggested_vertex, neighbour, bestsol, solvertex)
                 return newfront
             else:
                 #If there is no solution, the Vertex is clear
-                #See docstring finish
                 # print('else ', nearvertex[0], neighbour)
                 nearvertex[0].connect(neighbour)
         return newfront
 
-    bestsol, solvertex = find_best_solution(neighbour, nearvertex)
-
     if solvertex is not None:
-        solvertex[1].neighbours.remove(solvertex[0])
-        solvertex[0].neighbours.remove(solvertex[1])
-
-        newk=Vertex(neighbour.coords+bestsol*(suggested_vertex.coords-neighbour.coords))
-        singleton.global_lists.vertex_list.append(newk)
-        singleton.global_lists.coordslist.append(newk.coords)
-        singleton.global_lists.tree=cKDTree(singleton.global_lists.coordslist, leafsize=160)
-        neighbour.connect(newk)
-        solvertex[1].connect(newk)
-        solvertex[0].connect(newk)
+        reconnect(suggested_vertex, neighbour, bestsol, solvertex)
         return newfront
 
     #If the Vertex is clear to go, add him and return newfront.
-
     suggested_vertex.connect(neighbour)
     newfront.append(suggested_vertex)
+    #FIXME refactor
     singleton.global_lists.vertex_list.append(suggested_vertex)
     singleton.global_lists.coordslist.append(suggested_vertex.coords)
-    singleton.global_lists.tree=cKDTree(singleton.global_lists.coordslist, leafsize=160)
+    singleton.global_lists.tree = cKDTree(singleton.global_lists.coordslist, leafsize=160)
     return newfront
+
 
 def get_intersection(a, ab, c, cd):
     """Gets the intersection coordinates between two lines.
@@ -160,3 +142,19 @@ def find_best_solution(neighbour, nearvertex):
                     solvertex = [n, k]
 
     return bestsol, solvertex
+
+
+def reconnect(suggested_vertex, neighbour, bestsol, solvertex):
+
+    solvertex[1].neighbours.remove(solvertex[0])
+    solvertex[0].neighbours.remove(solvertex[1])
+
+    newk = Vertex(neighbour.coords + bestsol * (suggested_vertex.coords - neighbour.coords))
+    #TODO add method to global lists
+    singleton.global_lists.vertex_list.append(newk)
+    singleton.global_lists.coordslist.append(newk.coords)
+    singleton.global_lists.tree = cKDTree(singleton.global_lists.coordslist, leafsize=160)
+    neighbour.connect(newk)
+    solvertex[1].connect(newk)
+    solvertex[0].connect(newk)
+
