@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-from __future__ import division
+
 from proc_model.Vertex import Vertex
 
 import numpy as np
 from scipy.spatial import cKDTree
 from proc_model.additional_stuff.Singleton import Singleton
 singleton=Singleton("roadmap")
+
 
 def check(suggested_vertex, neighbour, newfront):
     """
@@ -42,7 +43,11 @@ def check(suggested_vertex, neighbour, newfront):
     newfront : list<Vertex>
     """
     #Checks if Neighbor is in Bounds
+
     # print('Check ', suggested_vertex, neighbour)
+    if not np.isfinite(suggested_vertex[0]) or not np.isfinite(suggested_vertex[1]):
+        return newfront
+
     if (abs(suggested_vertex.coords[0])>singleton.border[0]-singleton.maxLength) \
             or (abs(suggested_vertex.coords[1])>singleton.border[1]-singleton.maxLength):
         # print('out of bounds')
