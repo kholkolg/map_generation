@@ -41,6 +41,7 @@ class Singleton:
     def __setattr__(self, name, value):
         setattr(self.instance, name, value)
 
+
     def kill(self):
         """
         Deletes the Singleton's instance
