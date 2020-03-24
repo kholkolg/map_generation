@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5914275b-2727-4ad6-9caf-bbf7b4599fab" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/proc_model/additional_stuff/LinalgTools.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proc_model/additional_stuff/Param.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proc_model/additional_stuff/Wavefront.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proc_model/additional_stuff/randommap.py" afterPath="" />
       <change beforePath="$PROJECT_DIR$/proc_model/check.py" afterPath="$PROJECT_DIR$/proc_model/check.py" />
+      <change beforePath="$PROJECT_DIR$/proc_model/outputs/test_small.eps" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,8 +42,8 @@
       <file leaf-file-name="check.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proc_model/check.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="49" column="4" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+            <state relative-caret-position="152">
+              <caret line="101" column="37" lean-forward="true" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
               <folding>
                 <element signature="e#25#61#0" expanded="true" />
               </folding>
@@ -114,6 +111,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -157,6 +155,7 @@
         <option value="$PROJECT_DIR$/proc_model/getRule.py" />
         <option value="$PROJECT_DIR$/proc_model/config.py" />
         <option value="$PROJECT_DIR$/proc_model/additional_stuff/randommap.py" />
+        <option value="$PROJECT_DIR$/statistics/test.ipynb" />
         <option value="$PROJECT_DIR$/proc_model/check.py" />
       </list>
     </option>
@@ -205,6 +204,30 @@
               <item name="map_generation" type="462c0819:PsiDirectoryNode" />
               <item name="proc_model" type="462c0819:PsiDirectoryNode" />
               <item name="additional_stuff" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MapGeneration" type="b2602c69:ProjectViewProjectNode" />
+              <item name="map_generation" type="462c0819:PsiDirectoryNode" />
+              <item name="proc_model" type="462c0819:PsiDirectoryNode" />
+              <item name="config_functions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MapGeneration" type="b2602c69:ProjectViewProjectNode" />
+              <item name="map_generation" type="462c0819:PsiDirectoryNode" />
+              <item name="proc_model" type="462c0819:PsiDirectoryNode" />
+              <item name="growth_rules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MapGeneration" type="b2602c69:ProjectViewProjectNode" />
+              <item name="map_generation" type="462c0819:PsiDirectoryNode" />
+              <item name="proc_model" type="462c0819:PsiDirectoryNode" />
+              <item name="inputs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MapGeneration" type="b2602c69:ProjectViewProjectNode" />
+              <item name="map_generation" type="462c0819:PsiDirectoryNode" />
+              <item name="proc_model" type="462c0819:PsiDirectoryNode" />
+              <item name="outputs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MapGeneration" type="b2602c69:ProjectViewProjectNode" />
@@ -384,6 +407,22 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="MapGeneration" type="Python.Ipnb" factoryName="Jupyter Notebook">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="MapGeneration" />
+      <option name="additionalOptions" value="" />
+      <option name="ipnbHost" value="127.0.0.1" />
+      <option name="ipnbPort" value="8888" />
+    </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -471,12 +510,13 @@
       <option name="_new_target" value="&quot;&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <list size="5">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.main" />
       <item index="1" class="java.lang.String" itemvalue="Python.main (1)" />
       <item index="2" class="java.lang.String" itemvalue="Python.planar" />
       <item index="3" class="java.lang.String" itemvalue="Python.main (2)" />
       <item index="4" class="java.lang.String" itemvalue="Python.test" />
+      <item index="5" class="java.lang.String" itemvalue="Jupyter Notebook.MapGeneration" />
     </list>
     <recent_temporary>
       <list size="5">
@@ -519,10 +559,10 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39032257" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39032257" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2580645" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2580645" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16380742" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -581,13 +621,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/statistics/city_statistics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proc_model/temp/faceisdiffused.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -695,16 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1640">
           <caret line="130" column="4" lean-forward="false" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/rule_image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#30#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -917,10 +940,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/rule_image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/statistics/test.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/proc_model/check.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="49" column="4" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+        <state relative-caret-position="152">
+          <caret line="101" column="37" lean-forward="true" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
           <folding>
             <element signature="e#25#61#0" expanded="true" />
           </folding>

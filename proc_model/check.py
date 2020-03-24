@@ -7,6 +7,12 @@ from scipy.spatial import cKDTree
 from proc_model.additional_stuff.Singleton import Singleton
 singleton=Singleton("roadmap")
 
+EPS = 1e5
+
+
+def is_valid(sol):
+    return EPS < sol[0] < (1-EPS) and EPS < sol[1] < (1-EPS)
+
 
 def check(suggested_vertex, neighbour, newfront):
     """
@@ -42,39 +48,40 @@ def check(suggested_vertex, neighbour, newfront):
     -------
     newfront : list<Vertex>
     """
-    #Checks if Neighbor is in Bounds
+
 
     # print('Check ', suggested_vertex, neighbour)
     if not np.isfinite(suggested_vertex[0]) or not np.isfinite(suggested_vertex[1]):
         return newfront
 
-    if (abs(suggested_vertex.coords[0])>singleton.border[0]-singleton.maxLength) \
-            or (abs(suggested_vertex.coords[1])>singleton.border[1]-singleton.maxLength):
+    #Checks if Neighbor is in Bounds
+    if (abs(suggested_vertex.coords[0]) > singleton.border[0]-singleton.maxLength) \
+            or (abs(suggested_vertex.coords[1]) > singleton.border[1]-singleton.maxLength):
         # print('out of bounds')
         return newfront
 
     #Finds all nearby Vertex and their distances
     distances, nearvertex=singleton.global_lists.tree.query(suggested_vertex.coords, 10,
                                                             distance_upper_bound=singleton.maxLength)
-    l=len(singleton.global_lists.vertex_list)
-    nearvertex=[singleton.global_lists.vertex_list[x] for x in nearvertex if x<l ]
+    l = len(singleton.global_lists.vertex_list)
+    nearvertex=[singleton.global_lists.vertex_list[x] for x in nearvertex if x < l]
     # print('nearvertex ', nearvertex)
 
     #Distances[0] is the distance to the nearest Vertex, nearve:
-    if distances[0]<singleton.min_distance:
+    if distances[0] < singleton.min_distance:
 
         #If the nearest Vertex is not a neighbor
         if nearvertex[0] not in neighbour.neighbours:
 
             #Find the best solution - as in the closest intersection
-            bestsol=np.inf
-            solvertex=None
+            bestsol = np.inf
+            solvertex = None
 
             for k in nearvertex:
                 for n in k.neighbours:
                     if n in nearvertex: #and not in doneliste
                         sol=get_intersection(neighbour.coords, nearvertex[0].coords-neighbour.coords, k.coords, n.coords-k.coords)
-                        if sol[0]>0.00001 and sol[0]<0.99999 and sol[1]>0.00001 and sol[1]<0.99999 and sol[0]<bestsol:
+                        if is_valid(sol) and sol[0] < bestsol:
                             bestsol=sol[0]
                             solvertex=[n, k]
             # If there is at least one solution, intersect that solution
@@ -106,7 +113,8 @@ def check(suggested_vertex, neighbour, newfront):
         for n in k.neighbours:
             if n in nearvertex: #and not in doneliste
                 sol=get_intersection(neighbour.coords, suggested_vertex.coords-neighbour.coords, k.coords, n.coords-k.coords)
-                if sol[0]>0.00001 and sol[0]<1.499999 and sol[1]>0.00001 and sol[1]<0.99999 and sol[0]<bestsol:
+                # if sol[0]>0.0001 and sol[0]<1.49999 and sol[1]>0.0001 and sol[1]<0.9999 and sol[0]<bestsol:
+                if is_valid(sol) and sol[0] < bestsol:
                     bestsol=sol[0]
                     solvertex=[n, k]
     if solvertex is not None:
