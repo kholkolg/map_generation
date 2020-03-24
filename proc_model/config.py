@@ -42,8 +42,8 @@ def config():
 
 
     #Creates Vertex objects from coordinates
-
-    singleton.axiom=[Vertex(np.array([float(v[0]), float(v[1])])) for v in singleton.axiom]
+    n = 1 #singleton.min_distance/2
+    singleton.axiom=[Vertex(np.array([n*float(v[0]), n*float(v[1])])) for v in singleton.axiom]
     singleton.border=np.array([singleton.border_x, singleton.border_y])
     print('borders ', singleton.border)
 
@@ -54,8 +54,8 @@ def config():
 
     singleton.img, singleton.img2=input_image_setup(singleton.rule_image_name, singleton.density_image_name)
 
-    with open(path+"/temp/"+singleton.output_name+"_densitymap.txt", 'w') as f:
-        f.write(singleton.density_image_name.split(".")[0]+"diffused.png")
+    # with open(path+"/temp/"+singleton.output_name+"_densitymap.txt", 'w') as f:
+    #     f.write(singleton.density_image_name.split(".")[0]+"diffused.png")
 
 
     singleton.center=find_radial_centers(singleton)

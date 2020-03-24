@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from proc_model.additional_stuff.Singleton import Singleton
 from proc_model.additional_stuff.pickletools import save_vertexlist
 from proc_model.config import config
 from proc_model.iteration import iteration
@@ -9,30 +10,30 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
 from statistics.graph_metrics import compute_statisitcs
+import os, sys
+import random
+
+random.seed(42)
+np.random.seed(42)
+singl = Singleton("roadmap")
 
 
 def generate_map():
-    print('proc_model.main')
+    # print('proc_model.main')
 
-    singleton=config()
-    print(singleton)
+
+    # print(singleton)
 
     front = copy(singleton.global_lists.vertex_list)
     front.pop(0)
     front.pop()
 
-    # if singleton.plot == 1:
-    #     plt.close()
-    #     fig, ax = plt.plot()
-    #     fig.canvas.draw()
-    #     ax.set_xlim((-singleton.border[0], singleton.border[0]))
-    #     ax.set_ylim((-singleton.border[1], singleton.border[1]))
 
-    i=0
+    # i=0
     while len(front) > 0 or len(singleton.global_lists.vertex_queue) > 0:
-        i+=1
+        # i+=1
         front=iteration(front)
-        print(i)
+        # print(i)
 
     print("Roadmap is complete ", singleton.output_name)
     # path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
@@ -73,9 +74,7 @@ def to_nx(vertex_list):
                 # print('loop')
                 continue
             length = np.sqrt((coords_v[0] - coords_u[0]) ** 2 + (coords_v[1] - coords_u[1]) ** 2)
-            # if length < 5:
-            #     print('too short')
-            #     continue
+
             uid = key_map[coords_u]
 
             edges.append((vid, uid, {'length': length}))
@@ -101,16 +100,30 @@ def draw_edges(G):
     plt.show()
 
 if __name__ == '__main__':
-    import os, sys
+
+    import pandas as pd
     parentpath=os.path.join(os.getcwd(), ("../../"))
     sys.path.append(parentpath)
-    vlist = generate_map()
-    graph = to_nx(vlist)
-    stats = compute_statisitcs(graph)
-    for k, v in stats.items():
-        print(k, v)
 
-    lengths = np.array([x['length'] for _, x in graph.edges.items()])
+    results = []
+    for i in range(5):
+        singleton = config()
+        singleton.min_distance = 20
+        print(singleton.min_distance)
+        vlist = generate_map()
+        graph = to_nx(vlist)
+        result = {'city':'pm_mindist_'+str(i)}
+        result.update(compute_statisitcs(graph))
+        results.append(result)
+        singleton.kill()
+    df = pd.DataFrame(results)
+    df.drop(columns=['in_degree_avg', 'in_degree_std', 'out_degree_avg', 'out_degree_std'], inplace=True)
+    print(df.head(5))
+    df.to_csv('pm_20_seed.csv', index=False)
 
-    plt.hist(lengths, 50, density=True)
-    plt.show()
+
+    # for k, v in result.items():
+    #     print(k, v)
+    # lengths = np.array([x['length'] for _, x in graph.edges.items()])
+    # plt.hist(lengths, 50, density=True)
+    # plt.show()

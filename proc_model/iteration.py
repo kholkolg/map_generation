@@ -26,9 +26,9 @@ def iteration(front):
 
     for vertex in front:
         # print('iter ', vertex)
-        if vertex.id == 'nan-nan':
-            # print('Nan ', vertex)
-            continue
+        # if vertex.id == 'nan-nan':
+        #     print('Nan ', vertex)
+        #     continue
         for suggested_vertex in getSuggestion(vertex):
             # if suggested_vertex[0] == np.nan or suggested_vertex[0] == np.nan:
             #     print("suggested vertex NAN: ", suggested_vertex)
