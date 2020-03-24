@@ -33,6 +33,8 @@ def input_image_setup(rule_image_name, density_image_name):
     # print(density_image_name, density_img)
 
     plt.imsave(path+"/temp/"+density_image_name.split(".")[0]+"diffused.png", density_img, cmap='gray')
+    with open(path+"/temp/"+density_image_name.split(".")[0]+"isdiffused.txt", 'w') as f:
+        f.write("False")
 
 
     rule_img*=255

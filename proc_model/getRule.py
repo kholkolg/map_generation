@@ -5,7 +5,6 @@ from proc_model.additional_stuff.Singleton import Singleton
 
 singleton=Singleton("roadmap")
 
-
 def getRule(vertex):
     """
     Gets the correct growth_rule for a Vertex, depending on that objects'
@@ -32,11 +31,11 @@ def getRule(vertex):
 
     x_, y_ = 0, 0
     try:
-        x_ = int(singleton.density_img.shape[0]*(1-y))
+        x_ = int(singleton.img2.shape[0]*(1-y))
     except ValueError as err:
         print(vertex, err)
     try:
-        y_ = int(singleton.density_img.shape[1]*x)
+        y_ = int(singleton.img2.shape[1]*x)
     except ValueError as err:
         print(vertex, err)
 
@@ -44,21 +43,21 @@ def getRule(vertex):
     # print(s2, singleton.img2.shape[0]-y*singleton.img2.shape[0])
     # print(singleton.img2[s2])
     # im = singleton.img2[x_][y_][0]
-    population_density = np.sqrt((singleton.density_img[x_][y_][0]))
-    print('density ', population_density)
+    population_density = np.sqrt((singleton.img2[x_][y_][0]))
+    # print('density ', population_density)
 
     if vertex.seed:
-        return 4, None, population_density
+        return (4, None, population_density)
 
 
     if not vertex.minor_road:
         #Finds the relative position of the vertex on the growth_rule_image
-        intrule=np.argmax(singleton.rule_img[int(singleton.rule_img.shape[0]-y*singleton.rule_img.shape[0])][int(x*singleton.rule_img.shape[1])])
-        z = (0, 0)
+        intrule=np.argmax(singleton.img[int(singleton.img.shape[0]-y*singleton.img.shape[0])][int(x*singleton.img.shape[1])])
+        z=(0, 0)
 
         #If the rule is radial, find the closest radial center
         if intrule == 2:
-            z = singleton.center[np.argmin(np.linalg.norm(vertex.coords - singleton.center, axis=1))]
-        return intrule, z, population_density
+            z=singleton.center[np.argmin(np.linalg.norm(vertex.coords-singleton.center, axis=1))]
+        return (intrule, z, population_density)
     else:
-        return 3, None, population_density
+        return (3, None, population_density)

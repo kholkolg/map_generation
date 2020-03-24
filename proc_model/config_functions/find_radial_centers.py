@@ -1,7 +1,7 @@
 import numpy as np
 def find_radial_centers(singleton):
     '''Intended to find areas where the rule-image is blue and return the center of such areas'''
-    img=singleton.rule_img
+    img=singleton.img
     Aufloesung=singleton.center_find_resolution
     quadrate=[]
     for x1 in range( np.shape(img)[0] //Aufloesung ):

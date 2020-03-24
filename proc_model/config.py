@@ -1,14 +1,13 @@
 # -*- coding:utf-8 -*-
 
-from proc_model.config_functions.input_image_setup import input_image_setup
-import matplotlib.image as mpimg
-import matplotlib.pyplot as plt
+
 import numpy as np
-import proc_model
 import os
 from proc_model.Vertex import Vertex
+import proc_model
 from proc_model.additional_stuff.Singleton import Singleton
 from proc_model.config_functions.find_radial_centers import find_radial_centers
+from proc_model.config_functions.input_image_setup import input_image_setup
 
 
 class Global_Lists:
@@ -48,17 +47,19 @@ def config():
     singleton.border=np.array([singleton.border_x, singleton.border_y])
     print('borders ', singleton.border)
 
-    #Finds the longest possible length of a connection between to vertices
-    singleton.maxLength= max(singleton.radiallMax,singleton.gridlMax,singleton.organiclMax,singleton.seedlMax)
 
-    singleton.rule_img, singleton.density_img=input_image_setup(singleton.rule_image_name, singleton.density_image_name)
+    #Finds the longest possible length of a connection between to vertices
+    singleton.maxLength=max(singleton.radiallMax, singleton.gridlMax, singleton.organiclMax,
+                            singleton.minor_roadlMax, singleton.seedlMax)
+
+    singleton.img, singleton.img2=input_image_setup(singleton.rule_image_name, singleton.density_image_name)
 
     with open(path+"/temp/"+singleton.output_name+"_densitymap.txt", 'w') as f:
         f.write(singleton.density_image_name.split(".")[0]+"diffused.png")
 
 
     singleton.center=find_radial_centers(singleton)
-    singleton.center= [np.array([singleton.border[0] * ((x[1] / singleton.rule_img.shape[1]) - 0.5) * 2, singleton.border[1] * (((singleton.rule_img.shape[0] - x[0]) / singleton.rule_img.shape[0]) - 0.5) * 2]) for x in singleton.center]
+    singleton.center= [np.array([singleton.border[0]*((x[1]/singleton.img.shape[1])-0.5)*2, singleton.border[1]*(((singleton.img.shape[0]-x[0])/singleton.img.shape[0])-0.5)*2]) for x in singleton.center]
 
     # from procedural_city_generation.roadmap.config_functions.setup_heightmap import setup_heightmap
     # setup_heightmap(singleton, path)
@@ -67,8 +68,6 @@ def config():
     singleton.global_lists=Global_Lists()
     singleton.global_lists.vertex_list.extend(singleton.axiom)
     singleton.global_lists.coordslist=[x.coords for x in singleton.global_lists.vertex_list]
-
-
 
     def setNeighbours(vertex):
         """ Correctly Sets up the neighbors for a vertex from the axiom.

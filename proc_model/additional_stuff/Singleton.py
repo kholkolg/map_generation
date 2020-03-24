@@ -1,6 +1,7 @@
 import proc_model
-import json
 import os
+import json
+
 
 class Singleton:
     """
@@ -40,7 +41,6 @@ class Singleton:
 
     def __setattr__(self, name, value):
         setattr(self.instance, name, value)
-
 
     def kill(self):
         """
