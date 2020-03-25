@@ -3,7 +3,7 @@ import os
 import matplotlib.pyplot as plt
 import networkx as nx
 from matplotlib.collections import LineCollection
-
+from datetime import datetime
 
 def prepare_output(vertex_list):
 
@@ -37,16 +37,13 @@ def save_vertexlist(vertex_list, name="output", savefig=1):
     # print(path)
     edges = prepare_output(vertex_list)
 
-    try:
-        # print(path + "/temp/" + name, "wb")
-        with open(path+"/temp/"+name, "wb") as f:
-            pickle.dump(edges, f)
-    except IOError as error:
-        print("Specified output file doesn't exist: {0}".format(error))
-        return 1
-
-    # if savefig == 1:
-    print("Figure is being saved as " + name + ".png")
+    # try:
+    #     # print(path + "/temp/" + name, "wb")
+    #     with open(path+"/temp/"+name, "wb") as f:
+    #         pickle.dump(edges, f)
+    # except IOError as error:
+    #     print("Specified output file doesn't exist: {0}".format(error))
+    #     return 1
 
 
     # for k in vertex_list:
@@ -66,8 +63,10 @@ def save_vertexlist(vertex_list, name="output", savefig=1):
     ax.autoscale()
     ax.margins(0.1)
     plt.text(0, ax.get_ylim()[0], str(len(vertex_list)), fontsize=14)
-    plt.savefig(path+"/outputs/"+name+".eps")
-    print("New File " + name + " created in procedural_city_generation/temp/ with ", len(vertex_list), " vertices ")
+    timestamp = datetime.now().strftime("%H_%M_%S.%f")
+    print("Figure is being saved as " + name + timestamp + "_.png")
+    plt.savefig(path+"/outputs/"+name + timestamp + "_.png")
+    # print("New File " + name + " created in procedural_city_generation/temp/ with ", len(vertex_list), " vertices ")
 
     return 0
 

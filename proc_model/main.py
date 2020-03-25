@@ -97,7 +97,7 @@ def draw_edges(G):
     _, ax = plt.subplots()
     ax.add_collection(lc)
     ax.autoscale()
-    plt.show()
+    # plt.show()
 
 if __name__ == '__main__':
 
@@ -106,10 +106,10 @@ if __name__ == '__main__':
     sys.path.append(parentpath)
 
     results = []
-    for i in range(5):
+    for i in range(10):
         singleton = config()
         # singleton.min_distance = 20
-        print(singleton.min_distance)
+        # print(singleton.min_distance)
         vlist = generate_map()
         graph = to_nx(vlist)
         result = {'city':'pm_mindist_'+str(i)}
@@ -119,7 +119,7 @@ if __name__ == '__main__':
     df = pd.DataFrame(results)
     df.drop(columns=['in_degree_avg', 'in_degree_std', 'out_degree_avg', 'out_degree_std'], inplace=True)
     print(df.head(5))
-    df.to_csv('pm_20_seed.csv', index=False)
+    df.to_csv('pm_small.csv', index=False)
 
 
     # for k, v in result.items():

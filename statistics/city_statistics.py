@@ -38,6 +38,14 @@ def get_graph(place:str):
     return G
 
 
+def one_ways(graph):
+    oneways = [data['length'] for  u,v, data in graph.edges( data=True) if data['oneway']]
+    result = {'num_oneway':len(oneways), 'len_oneways':sum(oneways)}
+    print(result)
+    return result
+
+
+
 def city_statistics(city:str):
 
     result = {'city': city}
@@ -48,22 +56,24 @@ def city_statistics(city:str):
     G_proj = ox.project_graph(G)
     nodes_proj = ox.graph_to_gdfs(G_proj, edges=False)
 
-    area = compute_area_m(nodes_proj)
-    result['area_km'] = area/1e6
-    bs = compute_basic_stats(G, area)
-    #basic statistics from osmnx
-    result.update(bs)
+    result = one_ways(G_proj)
 
-    result.update(edge_length_stats(G))
-    result.update(degree_stats(G))
-
-    orig_point = compute_center(nodes_proj)
-    node0 = ox.get_nearest_node(G_proj, (orig_point.y, orig_point.x),
-                                method='euclidean', return_dist=False)
-    # print('node0 ', node0)
-    central_paths = compute_paths(G_proj, node0)
-    result['central_sp_mean'] = central_paths[0]
-    result['central_sp_std'] = central_paths[1]
+    # area = compute_area_m(nodes_proj)
+    # result['area_km'] = area/1e6
+    # bs = compute_basic_stats(G, area)
+    # #basic statistics from osmnx
+    # result.update(bs)
+    #
+    # result.update(edge_length_stats(G))
+    # result.update(degree_stats(G))
+    # result.update(one_ways(G_proj))
+    # orig_point = compute_center(nodes_proj)
+    # node0 = ox.get_nearest_node(G_proj, (orig_point.y, orig_point.x),
+    #                             method='euclidean', return_dist=False)
+    # # print('node0 ', node0)
+    # central_paths = compute_paths(G_proj, node0)
+    # result['central_sp_mean'] = central_paths[0]
+    # result['central_sp_std'] = central_paths[1]
     # result.update(compute_extended_stats(G))
     # print(result)
     return result
@@ -79,6 +89,7 @@ def prepare_stats(cities, filename):
     df = pd.DataFrame(results)
     print(df.head(5))
     df.to_csv(filename, index=False)
+    return df
 
 
 
@@ -104,22 +115,30 @@ if __name__ == '__main__':
     all = {'europe': cities_eu, 'us': cities_us, }
 
     # ox.config(use_cache=True)
+    df = pd.DataFrame()
+    for name, cities in all.items():
+        df = pd.concat([df, prepare_stats(cities, name + '_1ways.csv')], axis=0)
 
-    # for name, cities in all.items():
-    #     prepare_stats(cities, name + '.csv')
-
-    df =  pd.read_csv('data\graph_statistics2.csv', index_col=None)
-    print(df.columns)
-    df.drop(columns=['edge_length_avg_y'], inplace=True)
-    df.rename(columns={'n':'num_nodes','m':'num_edges',
-                       'edge_length_avg_x':'edge_length_avg',
-                       'k_avg':'degree_avg'}, inplace=True)
-    df['degree_std'] = df['in_degree_std']+df['out_degree_std']
-    df.to_csv('graphs1.csv', index=False)
-    df.drop(columns=['in_degree_avg', 'in_degree_std', 'out_degree_avg', 'out_degree_std'], inplace=True)
-    df.to_csv('data\graph_statistics.csv', index=False)
-    print(df.columns)
     print(df.head(5))
+    df1 = pd.read_csv('data\graph_statistics2.csv', index_col=None)
+    print(df1.columns)
+    df1.drop(columns=['Unnamed: 0'], inplace=True)
+    df1['area_km'] = df1['area_km']*10
+    print(df1.columns)
+
+    df = pd.merge(df, df1, on='city')
+    print(df.head(5))
+    df.to_csv('data\graph_statistics_1w.csv', index=False)
+
+    # df.rename(columns={'n':'num_nodes','m':'num_edges',
+    #                    'edge_length_avg_x':'edge_length_avg',
+    #                    'k_avg':'degree_avg'}, inplace=True)
+    # df['degree_std'] = df['in_degree_std']+df['out_degree_std']
+    # df.to_csv('graphs1.csv', index=False)
+    # df.drop(columns=['in_degree_avg', 'in_degree_std', 'out_degree_avg', 'out_degree_std'], inplace=True)
+    # df.to_csv('data\graph_statistics.csv', index=False)
+    # print(df.columns)
+    # print(df.head(5))
 
     # df1 = pd.read_csv('europe.csv', index_col=None)
     # df2 = pd.read_csv('us.csv', index_col=None)
@@ -140,8 +159,8 @@ if __name__ == '__main__':
     # df.to_csv('graph_statistics.csv', index=False)
     # df = df[df['n'] >= 8000]
 
-    df = pd.read_csv('graph_statistics.csv', index_col=None)
-    for col in df.columns:
-        if col == 'city': continue
-        ax = df.hist(column=col, bins=10)
-        plt.show()
+    # df = pd.read_csv('graph_statistics.csv', index_col=None)
+    # for col in df.columns:
+    #     if col == 'city': continue
+    #     ax = df.hist(column=col, bins=10)
+    #     plt.show()
