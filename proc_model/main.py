@@ -106,20 +106,21 @@ if __name__ == '__main__':
     sys.path.append(parentpath)
 
     results = []
-    for i in range(10):
+    for i in range(1, 21):
         singleton = config()
-        # singleton.min_distance = 20
+        singleton.min_distance = i/2
         # print(singleton.min_distance)
         vlist = generate_map()
         graph = to_nx(vlist)
-        result = {'city':'pm_mindist_'+str(i)}
+        result = {'city':'pm10x10_md_'+str(i)}
         result.update(compute_statisitcs(graph))
         results.append(result)
         singleton.kill()
     df = pd.DataFrame(results)
     df.drop(columns=['in_degree_avg', 'in_degree_std', 'out_degree_avg', 'out_degree_std'], inplace=True)
     print(df.head(5))
-    df.to_csv('pm_small.csv', index=False)
+    path = os.path.join(singleton.path, 'outputs', 'pm_small_mindist.csv')
+    df.to_csv(path, index=False)
 
 
     # for k, v in result.items():

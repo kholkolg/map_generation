@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5914275b-2727-4ad6-9caf-bbf7b4599fab" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/proc_model/additional_stuff/pickletools.py" afterPath="$PROJECT_DIR$/proc_model/additional_stuff/pickletools.py" />
-      <change beforePath="$PROJECT_DIR$/proc_model/inputs/roadmap.conf" afterPath="$PROJECT_DIR$/proc_model/inputs/roadmap.conf" />
+      <change beforePath="$PROJECT_DIR$/proc_model/additional_stuff/Singleton.py" afterPath="$PROJECT_DIR$/proc_model/additional_stuff/Singleton.py" />
       <change beforePath="$PROJECT_DIR$/proc_model/main.py" afterPath="$PROJECT_DIR$/proc_model/main.py" />
-      <change beforePath="$PROJECT_DIR$/proc_model/outputs/test0.eps" afterPath="$PROJECT_DIR$/proc_model/outputs/old/test0.eps" />
-      <change beforePath="$PROJECT_DIR$/proc_model/outputs/test1000_40.eps" afterPath="$PROJECT_DIR$/proc_model/outputs/old/test1000_40.eps" />
-      <change beforePath="$PROJECT_DIR$/proc_model/outputs/test1000_50.eps" afterPath="$PROJECT_DIR$/proc_model/outputs/old/test1000_50.eps" />
-      <change beforePath="$PROJECT_DIR$/proc_model/outputs/test20km_100.eps" afterPath="$PROJECT_DIR$/proc_model/outputs/old/test20km_100.eps" />
-      <change beforePath="$PROJECT_DIR$/proc_model/outputs/test20km_70.eps" afterPath="$PROJECT_DIR$/proc_model/outputs/old/test20km_70.eps" />
-      <change beforePath="$PROJECT_DIR$/proc_model/temp/test_small" afterPath="$PROJECT_DIR$/proc_model/temp/test_small" />
-      <change beforePath="$PROJECT_DIR$/statistics/city_statistics.py" afterPath="$PROJECT_DIR$/statistics/city_statistics.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,83 +14,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proc_model/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="108" column="21" lean-forward="false" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
+            <state relative-caret-position="1427">
+              <caret line="114" column="28" lean-forward="false" selection-start-line="114" selection-start-column="28" selection-end-line="114" selection-end-column="28" />
               <folding>
                 <element signature="e#46#105#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pickletools.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/pickletools.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="65" column="53" lean-forward="false" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="input_image_setup.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proc_model/config_functions/input_image_setup.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="38" column="35" lean-forward="false" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proc_model/config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1349">
-              <caret line="78" column="34" lean-forward="false" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
-              <folding>
-                <element signature="e#25#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="generate_image.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proc_model/config_functions/generate_image.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="36" column="75" lean-forward="false" selection-start-line="36" selection-start-column="75" selection-end-line="36" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getSuggestion.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proc_model/getSuggestion.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="28" column="8" lean-forward="false" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-              <folding>
-                <element signature="e#24#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getRule.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proc_model/getRule.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1197">
-              <caret line="64" column="74" lean-forward="false" selection-start-line="64" selection-start-column="74" selection-end-line="64" selection-end-column="74" />
-              <folding>
-                <element signature="e#25#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -108,21 +29,19 @@
       <file leaf-file-name="roadmap.conf" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proc_model/inputs/roadmap.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
+            <state relative-caret-position="-247">
               <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="city_statistics.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/statistics/city_statistics.py">
+      <file leaf-file-name="Singleton.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/Singleton.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="41" column="60" lean-forward="false" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="363">
+              <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,7 +82,6 @@
         <option value="$PROJECT_DIR$/GRE/main.py" />
         <option value="$PROJECT_DIR$/statistics/graph_metrics.py" />
         <option value="$PROJECT_DIR$/proc_model/Vertex.py" />
-        <option value="$PROJECT_DIR$/proc_model/additional_stuff/Singleton.py" />
         <option value="$PROJECT_DIR$/proc_model/additional_stuff/randommap.py" />
         <option value="$PROJECT_DIR$/statistics/test.ipynb" />
         <option value="$PROJECT_DIR$/proc_model/check.py" />
@@ -183,6 +101,7 @@
         <option value="$PROJECT_DIR$/proc_model/inputs/roadmap.conf" />
         <option value="$PROJECT_DIR$/proc_model/additional_stuff/pickletools.py" />
         <option value="$PROJECT_DIR$/proc_model/main.py" />
+        <option value="$PROJECT_DIR$/proc_model/additional_stuff/Singleton.py" />
       </list>
     </option>
   </component>
@@ -235,18 +154,6 @@
               <item name="MapGeneration" type="b2602c69:ProjectViewProjectNode" />
               <item name="map_generation" type="462c0819:PsiDirectoryNode" />
               <item name="proc_model" type="462c0819:PsiDirectoryNode" />
-              <item name="config_functions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MapGeneration" type="b2602c69:ProjectViewProjectNode" />
-              <item name="map_generation" type="462c0819:PsiDirectoryNode" />
-              <item name="proc_model" type="462c0819:PsiDirectoryNode" />
-              <item name="growth_rules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MapGeneration" type="b2602c69:ProjectViewProjectNode" />
-              <item name="map_generation" type="462c0819:PsiDirectoryNode" />
-              <item name="proc_model" type="462c0819:PsiDirectoryNode" />
               <item name="inputs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -254,12 +161,6 @@
               <item name="map_generation" type="462c0819:PsiDirectoryNode" />
               <item name="proc_model" type="462c0819:PsiDirectoryNode" />
               <item name="outputs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MapGeneration" type="b2602c69:ProjectViewProjectNode" />
-              <item name="map_generation" type="462c0819:PsiDirectoryNode" />
-              <item name="proc_model" type="462c0819:PsiDirectoryNode" />
-              <item name="temp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MapGeneration" type="b2602c69:ProjectViewProjectNode" />
@@ -312,10 +213,10 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/proc_model/outputs/old" />
+      <recent name="$PROJECT_DIR$/proc_model/outputs" />
+      <recent name="$PROJECT_DIR$/proc_model/inputs/density_pictures" />
+      <recent name="$PROJECT_DIR$/proc_model/inputs/rule_pictures" />
       <recent name="$PROJECT_DIR$/proc_model/config_functions" />
-      <recent name="$PROJECT_DIR$/proc_model" />
-      <recent name="$PROJECT_DIR$/statistics/data" />
-      <recent name="$PROJECT_DIR$/statistics" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -587,8 +488,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="66" y="-11" width="1855" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.192031" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.192031" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -660,65 +562,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/-265825554/numpy/random/mtrand.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4883">
-          <caret line="257" column="4" lean-forward="false" selection-start-line="257" selection-start-column="4" selection-end-line="257" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/vga/lib/python3.6/site-packages/matplotlib/image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25270">
-          <caret line="1354" column="4" lean-forward="false" selection-start-line="1354" selection-start-column="4" selection-end-line="1354" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/-265825554/numpy/core/_multiarray_umath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198911">
-          <caret line="10469" column="8" lean-forward="false" selection-start-line="10469" selection-start-column="8" selection-end-line="10469" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/inputs/density_pictures/abnehmend.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/inputs/density_pictures/immerwahr.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/inputs/density_pictures/stubs_density.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/inputs/rule_pictures/tiles_test.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/inputs/rule_pictures/tiles_large.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/inputs/density_pictures/testbild1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/test.py" />
-    <entry file="file://$USER_HOME$/anaconda3/envs/vga/lib/python3.6/site-packages/networkx/classes/graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="666" column="8" lean-forward="false" selection-start-line="666" selection-start-column="8" selection-end-line="666" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda3/envs/vga/lib/python3.6/site-packages/networkx/drawing/nx_pylab.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1640">
@@ -852,14 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/Singleton.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proc_model/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1349">
@@ -900,12 +735,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/test_fixed_dens.png">
+    <entry file="file://$PROJECT_DIR$/proc_model/inputs/density_pictures/test_fixed_dens.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/test_fixed.png">
+    <entry file="file://$PROJECT_DIR$/proc_model/inputs/rule_pictures/test_fixed.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -928,14 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proc_model/inputs/roadmap.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/statistics/graph_metrics.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1026">
@@ -952,20 +779,91 @@
     <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/pickletools.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="65" column="53" lean-forward="false" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
+          <caret line="65" column="51" lean-forward="false" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/outputs/test_small10_02_22.983059_.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/outputs/test_small10_02_26.210651_.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/outputs/test_small10_02_25.567623_.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/outputs/test_small10_02_24.925613_.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/outputs/test_small10_02_24.248980_.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/inputs/density_pictures/test_small_dens.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/inputs/rule_pictures/test_small.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/outputs/test_small10_02_27.540286_.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/outputs/test_small10_02_28.150088_.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/outputs/test_small10_02_26.824585_.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/outputs/test_small10_02_28.843036_.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/inputs/roadmap.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-247">
+          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/proc_model/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="108" column="21" lean-forward="false" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
+        <state relative-caret-position="1427">
+          <caret line="114" column="28" lean-forward="false" selection-start-line="114" selection-start-column="28" selection-end-line="114" selection-end-column="28" />
           <folding>
             <element signature="e#46#105#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/additional_stuff/Singleton.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>

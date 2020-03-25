@@ -23,6 +23,8 @@ class Singleton:
                     setattr(self, k, v["value"])
             else:
                 print( "Warning, Singleton instanciated without parsing a json file. Please specify the modulename parameter to avoid errors")
+            self.path = os.path.dirname(proc_model.__file__)
+
     instance=None
     def __init__(self, modulename=None):
         """

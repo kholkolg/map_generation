@@ -31,7 +31,6 @@ def input_image_setup(rule_image_name, density_image_name):
 
     #TODO: Document
 
-    path=os.path.dirname(proc_model.__file__)
     print('input_image_setup')
 
     # rule_img = mpimg.imread(path+"/inputs/rule_pictures/"+rule_image_name)
@@ -39,8 +38,8 @@ def input_image_setup(rule_image_name, density_image_name):
     tile = max(singleton.border)//4
     path=os.path.dirname(proc_model.__file__)
 
-    rule_img = make_rule_image(*singleton.border, tile, os.path.join(path, singleton.output_name+'.png'))
-    density_img = make_dens_image(*singleton.border, tile, os.path.join(path, singleton.output_name+'_dens.png'))
+    rule_img = make_rule_image(*singleton.border, tile, os.path.join(path, 'inputs', 'rule_pictures', singleton.output_name+'.png'))
+    density_img = make_dens_image(*singleton.border, tile, os.path.join(path, 'inputs', 'density_pictures', singleton.output_name+'_dens.png'))
     # density_img = mpimg.imread(path+"/inputs/density_pictures/"+density_image_name)
     # print(density_image_name, density_img)
 
