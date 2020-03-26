@@ -46,8 +46,8 @@ def getRule(vertex):
     # print(s2, singleton.img2.shape[0]-y*singleton.img2.shape[0])
     # print(singleton.img2[s2])
     # im = singleton.img2[x_][y_][0]
-    population_density = np.sqrt((singleton.img2[int(x_)][int(y_)][0]))
-    print('density ', population_density)
+    population_density = np.sqrt((singleton.img2[int(x_)][int(y_)][0]))/1.5
+    # print('density ', population_density)
 
     if vertex.seed:
         return (4, None, population_density)

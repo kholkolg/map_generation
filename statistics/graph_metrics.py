@@ -46,7 +46,7 @@ def compute_paths(graph, origin):
 
     mean = path_lengths.mean()
     std = path_lengths.std()
-    return {'mean': mean,'std': std}
+    return {'central_sp_mean': mean,'central_sp_std': std}
 
 
 def compute_area_m(nodes):
@@ -95,9 +95,9 @@ def one_ways(graph):
         oneways = [data['length'] for u,v, data in graph.edges( data=True) if data['oneway']]
 
     except KeyError:
-        for u, v, data in graph.edges(data=True):
-            print(u,v, data)
-            print(graph.has_edge(v,u))
+        # for u, v, data in graph.edges(data=True):
+        #     print(u,v, data)
+        #     print(graph.has_edge(v,u))
         oneways = [data['length'] for u, v, data in graph.edges(data=True) if not graph.has_edge(v, u)]
 
     result = {'num_oneway': len(oneways), 'len_oneways': sum(oneways)}

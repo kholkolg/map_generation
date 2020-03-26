@@ -40,24 +40,23 @@ def grid(vertex, b):
     v=random.uniform(lMin, lMax)*previous_vector
     # print('v ', v)
     random_number=random.randint(0, 100)
-    if random_number<=pForward:
-        k=Vertex(vertex.coords+v)
-
+    if random_number <= pForward:
+        k = Vertex(vertex.coords+v)
         suggested_vertices.append(k)
         weiter=False
     #Rechts
-    # v=random.uniform(lMin, lMax)*previous_vector
     random_number=random.randint(0, 100)
-    if random_number<=pTurn*b*b:
+    print('pTurn x dens ', pTurn*b)
+    if random_number<=pTurn*b:
         k=Vertex(vertex.coords+n)
 
         suggested_vertices.append(k)
         weiter=True
 
     #Links
-    # v=random.uniform(lMin, lMax)*previous_vector
     random_number=random.randint(0, 100)
-    if random_number<=pTurn*b*b:
+    print('pTurn x dens ', pTurn * b)
+    if random_number<=pTurn*b:
         k=Vertex(vertex.coords-n)
 
         suggested_vertices.append(k)
@@ -66,7 +65,7 @@ def grid(vertex, b):
 
     #Seed!
     if not weiter:
-        vertex.seed=True
+        vertex.seed = True
         singleton.global_lists.vertex_queue.append([vertex, 0])
 
     return suggested_vertices

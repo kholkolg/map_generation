@@ -44,26 +44,25 @@ def city_statistics(city:str):
     G_proj = ox.project_graph(G)
     nodes_proj = ox.graph_to_gdfs(G_proj, edges=False)
 
-    result.update(one_ways(G_proj))
+    area = compute_area_m(nodes_proj)
+    result['area_km'] = area/1e6
+    bs = compute_basic_stats(G, area)
+    #basic statistics from osmnx
+    result.update(bs)
 
-    # area = compute_area_m(nodes_proj)
-    # result['area_km'] = area/1e6
-    # bs = compute_basic_stats(G, area)
-    # #basic statistics from osmnx
-    # result.update(bs)
-    #
-    # result.update(edge_length_stats(G))
-    # result.update(degree_stats(G))
-    # result.update(one_ways(G_proj))
-    # orig_point = compute_center(nodes_proj)
-    # node0 = ox.get_nearest_node(G_proj, (orig_point.y, orig_point.x),
-    #                             method='euclidean', return_dist=False)
-    # # print('node0 ', node0)
-    # central_paths = compute_paths(G_proj, node0)
-    # result['central_sp_mean'] = central_paths[0]
-    # result['central_sp_std'] = central_paths[1]
+    result.update(edge_length_stats(G))
+    result.update(degree_stats(G))
+    result.update(one_ways(G_proj))
+    orig_point = compute_center(nodes_proj)
+    node0 = ox.get_nearest_node(G_proj, (orig_point.y, orig_point.x),
+                                method='euclidean', return_dist=False)
+    # print('node0 ', node0)
+    central_paths = compute_paths(G_proj, node0)
+    result['central_sp_mean'] = central_paths[0]
+    result['central_sp_std'] = central_paths[1]
     # result.update(compute_extended_stats(G))
-    # print(result)
+    result.update(one_ways(G_proj))
+    print(result)
     return result
 
 
@@ -106,14 +105,21 @@ if __name__ == '__main__':
     # ox.config(use_cache=True)
     dir = path.join(getcwd(), 'data')
 
+
+
+
+
+
+
     dfs = []
     for name, cities in all.items():
         dfs.extend(prepare_stats(cities, path.join(dir, name + '_1ways.csv')))
+        dfs.append(pd.read_csv(path.join(dir, name+ '_1ways.csv'), index_col=None))
 
-    df1 = pd.DataFrame(dfs)
+    df1 = pd.concat(dfs,axis=0)
     print(df1.head())
 
-    df2 = pd.read_csv(path.join(dir, 'data/graph_statistics.csv'), index_col=None)
+    df2 = pd.read_csv(path.join(dir, 'graph_statistics.csv'), index_col=None)
     print(df2.columns)
     df2['area_km'] = df2['area_km']*10
 

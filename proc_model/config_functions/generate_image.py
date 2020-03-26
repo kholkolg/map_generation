@@ -20,8 +20,12 @@ def make_picture(color_map, tiles):
     return pic
 
 
+def generate_images(height, length, tile, path):
+    return
+
+
 #TODO probabilities
-def make_rule_image(height, length, tile, filename):
+def make_rule_image(height, length, tile, filename=None):
     """
 
     :param height:
@@ -42,8 +46,8 @@ def make_rule_image(height, length, tile, filename):
     # print(pic.shape)
     pic = pic.reshape((rows * tile, cols * tile, 3))
     # print(pic.shape)
-
-    img.imsave(filename, pic)
+    if filename:
+        img.imsave(filename, pic)
     return pic
 
 def make_bw_tiles(size):
@@ -52,14 +56,15 @@ def make_bw_tiles(size):
     #           np.array([0, 0, 255], dtype=np.uint8)]
     #
     # shades = [[0, 0, 0], [25,25,25], [50, 50, 50] ...., [250,250, 250]]
-    print(size)
+    # print(size)
     shades = np.array([[25*i for _ in range(3)] for i in range(10)], dtype=np.uint8)
-    print(shades)
+    # print(shades)
     tiles = [np.tile(col, (size, size)).reshape((size, size, 3)) for col in shades]
 
     return tiles
 
-def make_dens_image(height, length, tile, filename):
+
+def make_dens_image(height, length, tile, filename=None):
     """
 
     :param height:
@@ -73,15 +78,15 @@ def make_dens_image(height, length, tile, filename):
     cols = length//tile+1
 
     color_map = np.random.choice(range(10), size=(rows, cols), replace=True)
-    print(color_map)
+    # print(color_map)
 
     tiles = make_bw_tiles(tile)
     pic = make_picture(color_map, tiles)
-    print(pic.shape)
+    # print(pic.shape)
     pic = pic.reshape((rows * tile, cols * tile, 3))
     # print(pic.shape)
-
-    img.imsave(filename, pic)
+    if filename:
+        img.imsave(filename, pic)
     return pic
 
 

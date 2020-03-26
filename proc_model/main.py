@@ -85,13 +85,12 @@ def to_nx(vertex_list):
     G.add_nodes_from(enumerate(nodes))
     G.add_edges_from(edges)
 
-    # draw_edges(G)
-    # nx.draw(G, node_size=3, width=0.5, arrowsize=5)
+    draw_edges(G)
 
     #    pos : {node:[x, y]}
-    nx.draw_networkx_edges(G, pos={k :[v['x'], v['y']] for k, v in G.nodes(data=True)},
-                           edge_color='black', arrowsize=10, node_size=10)
-    plt.show()
+    # nx.draw_networkx_edges(G, pos={k :[v['x'], v['y']] for k, v in G.nodes(data=True)},
+    #                        edge_color='black', arrowsize=10, node_size=10)
+    # plt.show()
 
     return G
 
@@ -112,15 +111,18 @@ if __name__ == '__main__':
     sys.path.append(parentpath)
 
     results = []
-    for i in range(5):
+    for i in range(1):
 
         singleton = config()
-        # print(singleton.min_distance)
+        # singleton.min_distance = i
+        # singleton.output_name += str(i)
+        print(singleton.min_distance)
         vlist = generate_map()
         graph = to_nx(vlist)
-        result = {'city':'pm10x10_md_'+str(singleton.min_distance)}
+        result = {'city': singleton.output_name + '_md%s' % singleton.min_distance}
         result.update(compute_statisitcs(graph))
         results.append(result)
+        print(result)
 
     df = pd.DataFrame(results)
     df.drop(columns=['in_degree_avg', 'in_degree_std', 'out_degree_avg', 'out_degree_std'], inplace=True)

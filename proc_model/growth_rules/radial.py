@@ -44,8 +44,10 @@ def radial(center, vertex, density):
 
     #Rechts
     v=random.uniform(lMin, lMax)*previous_vector
+    print('pTurn x dens ', pTurn * density)
     random_number=random.randint(0, 100)
-    if random_number<=pTurn*density*density:
+    if random_number<=pTurn*density:
+        print('pTurn x dens ', pTurn * density)
         k=Vertex(vertex.coords+rotate(90, v))
         suggested_vertices.append(k)
         weiter=True
@@ -53,7 +55,8 @@ def radial(center, vertex, density):
     #Links
     v=random.uniform(lMin, lMax)*previous_vector
     random_number=random.randint(0, 100)
-    if random_number<=pTurn*density*density:
+    print('pTurn x dens ', pTurn * density)
+    if random_number<=pTurn*density:
         k=Vertex(vertex.coords-rotate(90, v))
         suggested_vertices.append(k)
         weiter=True
