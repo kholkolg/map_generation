@@ -66,8 +66,8 @@ class Vertex(object):
         # print('connect ', self, ' ', other)
         if other not in self.neighbours:
             self.neighbours.append(other)
-        if self not in other.neighbours:
-            other.neighbours.append(self)
+        # if self not in other.neighbours:
+        #     other.neighbours.append(self)
 
 
     def __repr__(self):

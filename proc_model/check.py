@@ -82,7 +82,6 @@ def check(suggested_vertex, neighbour, newfront):
             nearvertex[0].connect(neighbour)
         return newfront
 
-
     #If the Vertex is clear to go, add him and return newfront.
     suggested_vertex.connect(neighbour)
     newfront.append(suggested_vertex)
@@ -118,6 +117,7 @@ def get_intersection(a, ab, c, cd):
         return np.array([np.inf, np.inf])
 
 
+
 def find_best_solution(neighbour, nearvertex):
     # Find the best solution - as in the closest intersection
     bestsol = np.inf
@@ -138,7 +138,7 @@ def find_best_solution(neighbour, nearvertex):
 def reconnect(suggested_vertex, neighbour, bestsol, solvertex):
 
     solvertex[1].neighbours.remove(solvertex[0])
-    solvertex[0].neighbours.remove(solvertex[1])
+    # solvertex[0].neighbours.remove(solvertex[1])
 
     newk = Vertex(neighbour.coords + bestsol * (suggested_vertex.coords - neighbour.coords))
     #TODO add method to global lists
@@ -147,5 +147,6 @@ def reconnect(suggested_vertex, neighbour, bestsol, solvertex):
     singleton.global_lists.tree = cKDTree(singleton.global_lists.coordslist, leafsize=160)
     neighbour.connect(newk)
     solvertex[1].connect(newk)
-    solvertex[0].connect(newk)
+    newk.connect(solvertex[0])
+    # solvertex[0].connect(newk)
 
