@@ -79,6 +79,7 @@ def check(suggested_vertex, neighbour, newfront):
     if distances[0] < singleton.min_distance:
         #If the nearest vertex is not a neighbor
         if nearvertex[0] not in neighbour.neighbours:
+            neighbour.connect(nearvertex[0])
             nearvertex[0].connect(neighbour)
         return newfront
 

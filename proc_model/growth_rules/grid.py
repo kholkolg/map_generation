@@ -9,6 +9,7 @@ from proc_model.additional_stuff.Singleton import Singleton
 singleton=Singleton("roadmap")
 
 def grid(vertex, b):
+    # b = density
 
     #Sammelt Numerische Werte aus Variables-Objekt
     pForward = singleton.gridpForward
@@ -26,7 +27,7 @@ def grid(vertex, b):
     previous_vector=np.array(vertex.coords-vertex.neighbours[-1].coords)
     pv_norm = np.linalg.norm(previous_vector)
     if pv_norm <= 0.0001:
-        return  suggested_vertices
+        return suggested_vertices
 
     previous_vector=previous_vector/pv_norm
     # print('v-u ',len(vertex.neighbours), vertex, vertex.neighbours[-1])
