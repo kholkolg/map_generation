@@ -41,7 +41,7 @@ def generate_map():
     # path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
     # with open(path + "/output/" + singleton.output_name, "wb") as f:
     #     pickle.dump(singleton.global_lists.vertex_list, f)
-    save_vertexlist(singleton.global_lists.vertex_list, singleton.output_name )
+    # save_vertexlist(singleton.global_lists.vertex_list, singleton.output_name )
 
     # print(singleton.global_lists.vertex_list)
     # if gui is None and singleton.plot == 1:
@@ -85,9 +85,13 @@ def to_nx(vertex_list):
     G.add_nodes_from(enumerate(nodes))
     G.add_edges_from(edges)
 
-    draw_edges(G)
-    # nx.draw(G, node_size=3, width=0.5)
-    # plt.show()
+    # draw_edges(G)
+    # nx.draw(G, node_size=3, width=0.5, arrowsize=5)
+
+    #    pos : {node:[x, y]}
+    nx.draw_networkx_edges(G, pos={k :[v['x'], v['y']] for k, v in G.nodes(data=True)},
+                           edge_color='black', arrowsize=10, node_size=10)
+    plt.show()
 
     return G
 
@@ -99,7 +103,7 @@ def draw_edges(G):
     _, ax = plt.subplots()
     ax.add_collection(lc)
     ax.autoscale()
-    # plt.show()
+    plt.show()
 
 if __name__ == '__main__':
 
@@ -108,10 +112,9 @@ if __name__ == '__main__':
     sys.path.append(parentpath)
 
     results = []
-    for i in range(1, 21):
+    for i in range(3):
 
         singleton = config()
-        singleton.min_distance = 1 + i/10
         # print(singleton.min_distance)
         vlist = generate_map()
         graph = to_nx(vlist)

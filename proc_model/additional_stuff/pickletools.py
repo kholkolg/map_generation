@@ -28,7 +28,7 @@ def prepare_output(vertex_list):
     return edges
 
 
-def save_vertexlist(vertex_list, name, savefig=1):
+def save_vertexlist(vertex_list, name, savefig=0):
     print("Output is being saved. Number of vertices=", len(vertex_list))
 
 
@@ -64,8 +64,9 @@ def save_vertexlist(vertex_list, name, savefig=1):
     ax.margins(0.1)
     plt.text(0, ax.get_ylim()[0], str(len(vertex_list)), fontsize=14)
     timestamp = datetime.now().strftime("%H_%M_%S.%f")
-    print("Figure is being saved as " + name + timestamp + "_.png")
-    plt.savefig(os.path.join(path, 'outputs', name + timestamp + ".png"))
+    if savefig:
+        print("Figure is being saved as " + name + timestamp + "_.png")
+        plt.savefig(os.path.join(path, 'outputs', name + timestamp + ".png"))
     # print("New File " + name + " created in procedural_city_generation/temp/ with ", len(vertex_list), " vertices ")
 
     return 0
