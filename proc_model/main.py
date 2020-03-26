@@ -25,9 +25,11 @@ def generate_map():
     # print(singleton)
 
     front = copy(singleton.global_lists.vertex_list)
+    print('1 ', front)
     front.pop(0)
+    print('2 ',front)
     front.pop()
-
+    print('3 ', front)
 
     # i=0
     while len(front) > 0 or len(singleton.global_lists.vertex_queue) > 0:

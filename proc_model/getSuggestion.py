@@ -25,47 +25,23 @@ def getSuggestion(vertex):
     suggestions=[]
     rule= getRule(vertex)
     #Grid
-    # if rule[0] == 0:
-    l = grid(vertex, rule[2])
-    for x in l:
-        # print('grid ',x)
-        # if x != vertex:
-        #     print('append')
-            suggestions.append(x)
-    # #Organic
-    if rule[0] == 1:
+    if rule[0] == 0:
+        suggestions = grid(vertex, rule[2])
 
-        l=organic(vertex, rule[2])
-        for x in l:
-            # print('organic ', x)
-            # if x != vertex:
-            #     print('append')
-                suggestions.append(x)
+    #Organic
+    if rule[0] == 1:
+        suggestions = organic(vertex, rule[2])
+
     #Radial
     if rule[0] == 2:
+        suggestions = radial(rule[1], vertex, rule[2])
 
-        l=radial(rule[1], vertex, rule[2])
-        for x in l:
-            # print('radial ', x)
-            # if x != vertex:
-            #     print('append')
-                suggestions.append(x)
     #minor_road
     if rule[0] == 3:
-        l=minor_road(vertex, rule[2])
-        for x in l:
-            # print('minor ', x)
-            # if x != vertex:
-            #     print('append')
-                suggestions.append(x)
+        suggestions = minor_road(vertex, rule[2])
     #seed
     if rule[0] == 4:
-        l=seed(vertex, rule[2])
-        for x in l:
-            # print('seed ', x)
-            # if x != vertex:
-            #     print('append')
-                suggestions.append(x)
+        suggestions = seed(vertex, rule[2])
 
     # print('suggestions ', suggestions)
     return suggestions
