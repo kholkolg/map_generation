@@ -6,6 +6,7 @@ from matplotlib import pyplot as plt
 import scipy.spatial
 from shapely.geometry import box, Point
 from statistics.graph_metrics import *
+from os import  path, getcwd
 
 
 BASIC_COLS = ['n', 'm', 'k_avg', 'edge_length_total', 'edge_length_avg',
@@ -56,7 +57,7 @@ def city_statistics(city:str):
     G_proj = ox.project_graph(G)
     nodes_proj = ox.graph_to_gdfs(G_proj, edges=False)
 
-    result = one_ways(G_proj)
+    result.update(one_ways(G_proj))
 
     # area = compute_area_m(nodes_proj)
     # result['area_km'] = area/1e6
@@ -80,6 +81,7 @@ def city_statistics(city:str):
 
 
 def prepare_stats(cities, filename):
+    print(filename)
     results = []
     for c in cities:
         print(c)
@@ -89,7 +91,7 @@ def prepare_stats(cities, filename):
     df = pd.DataFrame(results)
     print(df.head(5))
     df.to_csv(filename, index=False)
-    return df
+    return results
 
 
 
@@ -115,20 +117,22 @@ if __name__ == '__main__':
     all = {'europe': cities_eu, 'us': cities_us, }
 
     # ox.config(use_cache=True)
-    df = pd.DataFrame()
+    dir = path.join(getcwd(), 'data')
+
+    dfs = []
     for name, cities in all.items():
-        df = pd.concat([df, prepare_stats(cities, name + '_1ways.csv')], axis=0)
+        dfs.extend(prepare_stats(cities, path.join(dir, name + '_1ways.csv')))
 
-    print(df.head(5))
-    df1 = pd.read_csv('data\graph_statistics2.csv', index_col=None)
-    print(df1.columns)
-    df1.drop(columns=['Unnamed: 0'], inplace=True)
-    df1['area_km'] = df1['area_km']*10
-    print(df1.columns)
+    df1 = pd.DataFrame(dfs)
+    print(df1.head())
 
-    df = pd.merge(df, df1, on='city')
+    df2 = pd.read_csv(path.join(dir, 'data/graph_statistics.csv'), index_col=None)
+    print(df2.columns)
+    df2['area_km'] = df2['area_km']*10
+
+    df = pd.merge(df1, df2, on='city')
     print(df.head(5))
-    df.to_csv('data\graph_statistics_1w.csv', index=False)
+    df.to_csv(path.join(dir, 'graph_statistics_1w.csv'), index=False)
 
     # df.rename(columns={'n':'num_nodes','m':'num_edges',
     #                    'edge_length_avg_x':'edge_length_avg',

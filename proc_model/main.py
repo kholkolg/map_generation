@@ -39,7 +39,7 @@ def generate_map():
     # path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
     # with open(path + "/output/" + singleton.output_name, "wb") as f:
     #     pickle.dump(singleton.global_lists.vertex_list, f)
-    save_vertexlist(singleton.global_lists.vertex_list, singleton.output_name)
+    save_vertexlist(singleton.global_lists.vertex_list, singleton.output_name )
 
     # print(singleton.global_lists.vertex_list)
     # if gui is None and singleton.plot == 1:
@@ -107,15 +107,16 @@ if __name__ == '__main__':
 
     results = []
     for i in range(1, 21):
+
         singleton = config()
-        singleton.min_distance = i/2
+        singleton.min_distance = 1 + i/10
         # print(singleton.min_distance)
         vlist = generate_map()
         graph = to_nx(vlist)
-        result = {'city':'pm10x10_md_'+str(i)}
+        result = {'city':'pm10x10_md_'+str(singleton.min_distance)}
         result.update(compute_statisitcs(graph))
         results.append(result)
-        singleton.kill()
+
     df = pd.DataFrame(results)
     df.drop(columns=['in_degree_avg', 'in_degree_std', 'out_degree_avg', 'out_degree_std'], inplace=True)
     print(df.head(5))

@@ -28,7 +28,7 @@ def prepare_output(vertex_list):
     return edges
 
 
-def save_vertexlist(vertex_list, name="output", savefig=1):
+def save_vertexlist(vertex_list, name, savefig=1):
     print("Output is being saved. Number of vertices=", len(vertex_list))
 
 
@@ -65,24 +65,11 @@ def save_vertexlist(vertex_list, name="output", savefig=1):
     plt.text(0, ax.get_ylim()[0], str(len(vertex_list)), fontsize=14)
     timestamp = datetime.now().strftime("%H_%M_%S.%f")
     print("Figure is being saved as " + name + timestamp + "_.png")
-    plt.savefig(path+"/outputs/"+name + timestamp + "_.png")
+    plt.savefig(os.path.join(path, 'outputs', name + timestamp + ".png"))
     # print("New File " + name + " created in procedural_city_generation/temp/ with ", len(vertex_list), " vertices ")
 
     return 0
 
-
-def reconstruct(path):
-
-    import os
-    import procedural_city_generation
-    fullpath = os.path.dirname(procedural_city_generation.__file__) + "/temp/" + path
-
-    import pickle
-    with open(fullpath, 'rb') as f:
-        vertex_list = pickle.loads(f.read())
-        for i, v in enumerate(vertex_list):
-            v.selfindex = i
-        return vertex_list
 
 
 

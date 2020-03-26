@@ -42,7 +42,7 @@ def config():
 
     #Creates Singleton-Variables object from namedtuple
     singleton = Singleton("roadmap")
-
+    singleton.path = os.path.dirname(proc_model.__file__)
     #Creates Vertex objects from coordinates
     n = 1 #singleton.min_distance/2
     singleton.axiom = [Vertex(np.array([n*float(v[0]), n*float(v[1])])) for v in singleton.axiom]
