@@ -1,13 +1,8 @@
 import pandas as pd
-import osmnx as ox
-import numpy as np
-import networkx as nx
-from matplotlib import pyplot as plt
-import scipy.spatial
-from shapely.geometry import box, Point
 from statistics.graph_metrics import *
 from os import  path, getcwd
 
+from statistics.graph_metrics import one_ways
 
 BASIC_COLS = ['n', 'm', 'k_avg', 'edge_length_total', 'edge_length_avg',
               'node_density_km', 'edge_density_km', 'city', 'area_km']
@@ -37,14 +32,6 @@ def get_graph(place:str):
         except Exception as ex:
             print(place, '2: ', ex)
     return G
-
-
-def one_ways(graph):
-    oneways = [data['length'] for  u,v, data in graph.edges( data=True) if data['oneway']]
-    result = {'num_oneway':len(oneways), 'len_oneways':sum(oneways)}
-    print(result)
-    return result
-
 
 
 def city_statistics(city:str):

@@ -112,7 +112,7 @@ if __name__ == '__main__':
     sys.path.append(parentpath)
 
     results = []
-    for i in range(3):
+    for i in range(5):
 
         singleton = config()
         # print(singleton.min_distance)
@@ -125,7 +125,7 @@ if __name__ == '__main__':
     df = pd.DataFrame(results)
     df.drop(columns=['in_degree_avg', 'in_degree_std', 'out_degree_avg', 'out_degree_std'], inplace=True)
     print(df.head(5))
-    path = os.path.join(singleton.path, 'outputs', 'pm_small_mindist.csv')
+    path = os.path.join(singleton.path, 'outputs', singleton.output_name +'.csv')
     df.to_csv(path, index=False)
 
 

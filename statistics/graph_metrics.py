@@ -14,7 +14,7 @@ def edge_length_stats(graph):
     mean = lengths.mean()
     sigma = lengths.std()
 
-    return {'edge_length_avg':mean, 'edge_length_std':sigma}
+    return {'edge_length_avg': mean, 'edge_length_std':sigma}
 
 
 def degree_stats(graph):
@@ -46,7 +46,7 @@ def compute_paths(graph, origin):
 
     mean = path_lengths.mean()
     std = path_lengths.std()
-    return mean, std
+    return {'mean': mean,'std': std}
 
 
 def compute_area_m(nodes):
@@ -80,10 +80,22 @@ def compute_statisitcs(G, plot=False):
     node0 = ox.get_nearest_node(G, (origin.y, origin.x),
                                 method='euclidean', return_dist=False)
     # print('node0 ', node0)
-    central_paths = compute_paths(G, node0)
-    result['central_sp_mean'] = central_paths[0]
-    result['central_sp_std'] = central_paths[1]
+    result.update(compute_paths(G, node0))
+    result.update(one_ways(G))
+    # result['central_sp_mean'] = central_paths[0]
+    # result['central_sp_std'] = central_paths[1]
     result['degree_avg'] = result['in_degree_avg'] + result['out_degree_avg']
     result['degree_std'] = result['in_degree_std'] + result['out_degree_std']
 
+    return result
+
+
+def one_ways(graph):
+    try:
+        oneways = [data['length'] for u,v, data in graph.edges( data=True) if data['oneway']]
+
+    except KeyError:
+        oneways = [data['length'] for u, v, data in graph.edges(data=True) if not graph.has_edge(v, u)]
+    result = {'num_oneway': len(oneways), 'len_oneways': sum(oneways)}
+    print(result)
     return result
