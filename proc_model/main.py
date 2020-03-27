@@ -106,31 +106,21 @@ def draw_edges(G):
 
 
 def find_scc(graph):
-    # scc = [c for c in nx.strongly_connected_components(graph)]
-    # scc.sort(key=lambda c: len(c), reverse=True)
-    # for c in scc:
-    #     print("component size ", len(c))
-    #     print(c)
-    #     print("----------------")
-    # scc0 = scc[0]
-    # print(type(scc0),len(scc0))
-    # for node in graph.nodes:
-    #     print(node)
+
     scc = max(nx.strongly_connected_components(graph), key=len)
-    print(len(scc), type(scc))
-    print(graph.number_of_nodes())
-    nodes = [(n[0], {'x': n[1]['x'], 'y': n[1]['y']}) for n in graph.nodes(data=True) if n]
-    print(nodes)
-    edges = [(u, v, d) for u,v, d in graph.edges(data=True) if u in scc and v in scc]
-    print(len(edges))
+    # print('scc ', scc)
+    nodes = [(n[0], {'x': n[1]['x'], 'y': n[1]['y']}) for n in graph.nodes(data=True) if n and n[0] in scc]
+    edges = [(u, v, d) for u, v, d in graph.edges(data=True) if (u in scc) and (v in scc)]
+    # print(len(edges))
 
-    # largest_scc = graph.subgraph(nodes_scc)
-
-    largest_scc = nx.MultiDiGraph()
-    largest_scc.add_nodes_from(nodes)
-    largest_scc.add_edges_from(edges)
-    draw_edges(largest_scc)
-    return largest_scc
+    graph_scc = nx.MultiDiGraph()
+    graph_scc.add_nodes_from(nodes)
+    graph_scc.add_edges_from(edges)
+    graph_scc = nx.relabel.convert_node_labels_to_integers(graph_scc)
+    draw_edges(graph_scc)
+    print('New graph: ', graph_scc.number_of_nodes(), graph_scc.number_of_edges())
+    # Gc = max(nx.strongly_connected_subgraphs(graph), key=len)
+    return graph_scc
 
 if __name__ == '__main__':
 
@@ -146,14 +136,15 @@ if __name__ == '__main__':
         # singleton.output_name += str(i)
         print(singleton.min_distance)
         vlist = generate_map()
-        graph = to_nx(vlist)
 
+        graph = to_nx(vlist)
+        graph = find_scc(graph)
 
         result = {'city': singleton.output_name + '_md%s' % singleton.min_distance}
         result.update(compute_statisitcs(graph))
         results.append(result)
         print(result)
-        graph_scc = find_scc(graph)
+
         result_scc = {'city': singleton.output_name + 'scc_md%s' % singleton.min_distance}
         result_scc.update(compute_statisitcs(graph_scc))
         results.append(result_scc)
