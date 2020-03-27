@@ -111,7 +111,7 @@ if __name__ == '__main__':
     sys.path.append(parentpath)
 
     results = []
-    for i in range(1):
+    for i in range(10):
 
         singleton = config()
         # singleton.min_distance = i

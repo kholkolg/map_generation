@@ -147,7 +147,7 @@ def reconnect(suggested_vertex, neighbour, bestsol, solvertex):
     singleton.global_lists.coordslist.append(newk.coords)
     singleton.global_lists.tree = cKDTree(singleton.global_lists.coordslist, leafsize=160)
     newk.connect(neighbour)
-    # neighbour.connect(newk)
+    neighbour.connect(newk)
     solvertex[1].connect(newk)
     newk.connect(solvertex[0])
     # solvertex[0].connect(newk)

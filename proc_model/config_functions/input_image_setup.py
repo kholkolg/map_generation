@@ -9,7 +9,7 @@ from proc_model.config_functions.generate_image import make_dens_image
 
 singleton=Singleton("roadmap")
 
-def input_image_setup(rule_image_name, density_image_name):
+def input_image_setup():
     '''
     Loads the rule-image and population-density-image from the filesystem.
     Saves the density image in /temp/ folder so that it could be ensured.

@@ -54,8 +54,7 @@ def config():
     singleton.maxLength=max(singleton.radiallMax, singleton.gridlMax, singleton.organiclMax,
                             singleton.minor_roadlMax, singleton.seedlMax)
 
-    singleton.img, singleton.img2 = input_image_setup(singleton.rule_image_name,
-                                                    singleton.density_image_name)
+    singleton.img, singleton.img2 = input_image_setup()
 
     # with open(path+"/temp/"+singleton.output_name+"_densitymap.txt", 'w') as f:
     #     f.write(singleton.density_image_name.split(".")[0]+"diffused.png")

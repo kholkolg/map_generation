@@ -57,7 +57,7 @@ def make_bw_tiles(size):
     #
     # shades = [[0, 0, 0], [25,25,25], [50, 50, 50] ...., [250,250, 250]]
     # print(size)
-    shades = np.array([[25*i for _ in range(3)] for i in range(10)], dtype=np.uint8)
+    shades = np.array([[i for _ in range(3)] for i in range(10)], dtype=np.uint8)
     # print(shades)
     tiles = [np.tile(col, (size, size)).reshape((size, size, 3)) for col in shades]
 
