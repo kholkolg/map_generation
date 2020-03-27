@@ -12,6 +12,7 @@ from matplotlib.collections import LineCollection
 from statistics.graph_metrics import compute_statisitcs
 import os, sys
 import random
+import itertools
 
 random.seed(42)
 np.random.seed(42)
@@ -85,7 +86,7 @@ def to_nx(vertex_list):
     G.add_nodes_from(enumerate(nodes))
     G.add_edges_from(edges)
 
-    draw_edges(G)
+    # draw_edges(G)
 
     #    pos : {node:[x, y]}
     # nx.draw_networkx_edges(G, pos={k :[v['x'], v['y']] for k, v in G.nodes(data=True)},
@@ -117,7 +118,7 @@ def find_scc(graph):
     graph_scc.add_nodes_from(nodes)
     graph_scc.add_edges_from(edges)
     graph_scc = nx.relabel.convert_node_labels_to_integers(graph_scc)
-    draw_edges(graph_scc)
+    # draw_edges(graph_scc)
     print('New graph: ', graph_scc.number_of_nodes(), graph_scc.number_of_edges())
     # Gc = max(nx.strongly_connected_subgraphs(graph), key=len)
     return graph_scc
@@ -129,30 +130,43 @@ if __name__ == '__main__':
     sys.path.append(parentpath)
 
     results = []
-    for i in range(1):
+    for pf, pt in list(itertools.product(range(10, 110, 10),  repeat=2)):
+        print('pforward ', pf, ', pturn ', pt)
+        singleton = config(1)
+        singleton.radialpForward = pf
+        singleton.gridpForward = pf
+        singleton.organicpForward = pf
+        singleton.minorpForward = pf
+        singleton.radialpTurn = pt
+        singleton.gridpTurn = pt
+        singleton.organicpTurn = pt
+        singleton.minorpTurn = pt
 
-        singleton = config()
+
         # singleton.min_distance = i
         # singleton.output_name += str(i)
-        print(singleton.min_distance)
+        # print(singleton.min_distance)
         vlist = generate_map()
 
         graph = to_nx(vlist)
         graph = find_scc(graph)
 
-        result = {'city': singleton.output_name + '_md%s' % singleton.min_distance}
+        result = {'city': singleton.output_name + 'scc_%s_%s' % (singleton.gridpForward, singleton.gridpTurn)}
         result.update(compute_statisitcs(graph))
         results.append(result)
         print(result)
 
-        result_scc = {'city': singleton.output_name + 'scc_md%s' % singleton.min_distance}
-        result_scc.update(compute_statisitcs(graph_scc))
-        results.append(result_scc)
-        print(result_scc)
+        # result_scc = {'city': singleton.output_name + 'scc_md%s' % singleton.min_distance}
+        # result_scc.update(compute_statisitcs(graph_scc))
+        # results.append(result_scc)
+        # print(result_scc)
 
     df = pd.DataFrame(results)
     df.drop(columns=['in_degree_avg', 'in_degree_std', 'out_degree_avg', 'out_degree_std'], inplace=True)
     print(df.head(5))
+    columns = 'city;area_km;num_nodes;num_edges;degree_avg;edge_length_total;edge_length_avg;node_density_km;' \
+              'edge_density_km;central_sp_mean;central_sp_std;edge_length_std;degree_std;num_oneways;len_oneways'
+    df = df[columns.split(';')]
     path = os.path.join(singleton.path, 'outputs', singleton.output_name +'.csv')
     df.to_csv(path, index=False)
 

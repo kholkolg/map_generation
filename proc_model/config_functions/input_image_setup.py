@@ -9,7 +9,7 @@ from proc_model.config_functions.generate_image import make_dens_image
 
 singleton=Singleton("roadmap")
 
-def input_image_setup():
+def input_image_setup(i):
     '''
     Loads the rule-image and population-density-image from the filesystem.
     Saves the density image in /temp/ folder so that it could be ensured.
@@ -38,8 +38,8 @@ def input_image_setup():
     tile = 20
     path=os.path.dirname(proc_model.__file__)
 
-    rule_img = make_rule_image(*singleton.border, tile, os.path.join(path, 'inputs', 'rule_pictures', singleton.output_name+'.png'))
-    density_img = make_dens_image(*singleton.border, tile, os.path.join(path, 'inputs', 'density_pictures', singleton.output_name+'_dens.png'))
+    rule_img = make_rule_image(*singleton.border*i, tile, os.path.join(path, 'inputs', 'rule_pictures', singleton.output_name+'.png'))
+    density_img = make_dens_image(*singleton.border*i, tile, os.path.join(path, 'inputs', 'density_pictures', singleton.output_name+'_dens.png'))
     # density_img = mpimg.imread(path+"/inputs/density_pictures/"+density_image_name)
     # print(density_image_name, density_img)
 

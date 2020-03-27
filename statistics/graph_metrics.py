@@ -72,7 +72,10 @@ def compute_statisitcs(G, plot=False):
     result['area_km'] = area / 1e6
     result['num_nodes'] = G.number_of_nodes()
     result['num_edges'] = G.number_of_edges()
-    result['node_density_km'] = result['num_nodes'] / result['area_km']
+    if result['area_km'] != 0:
+        result['node_density_km'] = result['num_nodes'] / result['area_km']
+    else:
+        result['node_density_km'] = np.inf
     result['edge_length_total'] = result['edge_length_avg']*result['num_edges']
     result['edge_density_km'] = result['edge_length_total'] / result['area_km']
     origin = compute_center(gdf_nodes)

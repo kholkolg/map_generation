@@ -20,7 +20,7 @@ class Global_Lists:
         self.tree=None
 
 
-def config():
+def config(i):
     """
     Starts the program up with all necessary things. Reads the inputs,
     creates the Singleton objects properly, sets up the heightmap for later,
@@ -54,7 +54,7 @@ def config():
     singleton.maxLength=max(singleton.radiallMax, singleton.gridlMax, singleton.organiclMax,
                             singleton.minor_roadlMax, singleton.seedlMax)
 
-    singleton.img, singleton.img2 = input_image_setup()
+    singleton.img, singleton.img2 = input_image_setup(i)
 
     # with open(path+"/temp/"+singleton.output_name+"_densitymap.txt", 'w') as f:
     #     f.write(singleton.density_image_name.split(".")[0]+"diffused.png")
