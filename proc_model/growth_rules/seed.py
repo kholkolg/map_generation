@@ -35,7 +35,7 @@ def seed(vertex, density):
     v2=v2/np.linalg.norm(v2)
 
     #Rechts
-    print('pseed x dens ', pSeed * density)
+    # print('pseed x dens ', pSeed * density)
     if density*pSeed>np.random.randint(0, 100):
 
         l1 = np.random.normal(lMin, lMax)
@@ -49,7 +49,8 @@ def seed(vertex, density):
     v2 = -v2
 
     #Links
-    print('pseed x dens ', pSeed * density)
+    # add counter to check probs
+    # print('pseed x dens ', pSeed * density)
     if  density*pSeed>np.random.randint(0, 100):
 
         length = np.random.uniform(lMin, lMax)

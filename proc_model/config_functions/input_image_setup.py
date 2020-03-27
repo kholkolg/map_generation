@@ -35,7 +35,7 @@ def input_image_setup():
 
     # rule_img = mpimg.imread(path+"/inputs/rule_pictures/"+rule_image_name)
     # height, length = singleton.border
-    tile = max(singleton.border)//8
+    tile = 20
     path=os.path.dirname(proc_model.__file__)
 
     rule_img = make_rule_image(*singleton.border, tile, os.path.join(path, 'inputs', 'rule_pictures', singleton.output_name+'.png'))

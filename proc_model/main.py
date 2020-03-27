@@ -104,6 +104,34 @@ def draw_edges(G):
     ax.autoscale()
     plt.show()
 
+
+def find_scc(graph):
+    # scc = [c for c in nx.strongly_connected_components(graph)]
+    # scc.sort(key=lambda c: len(c), reverse=True)
+    # for c in scc:
+    #     print("component size ", len(c))
+    #     print(c)
+    #     print("----------------")
+    # scc0 = scc[0]
+    # print(type(scc0),len(scc0))
+    # for node in graph.nodes:
+    #     print(node)
+    scc = max(nx.strongly_connected_components(graph), key=len)
+    print(len(scc), type(scc))
+    print(graph.number_of_nodes())
+    nodes = [(n[0], {'x': n[1]['x'], 'y': n[1]['y']}) for n in graph.nodes(data=True) if n]
+    print(nodes)
+    edges = [(u, v, d) for u,v, d in graph.edges(data=True) if u in scc and v in scc]
+    print(len(edges))
+
+    # largest_scc = graph.subgraph(nodes_scc)
+
+    largest_scc = nx.MultiDiGraph()
+    largest_scc.add_nodes_from(nodes)
+    largest_scc.add_edges_from(edges)
+    draw_edges(largest_scc)
+    return largest_scc
+
 if __name__ == '__main__':
 
     import pandas as pd
@@ -111,7 +139,7 @@ if __name__ == '__main__':
     sys.path.append(parentpath)
 
     results = []
-    for i in range(10):
+    for i in range(1):
 
         singleton = config()
         # singleton.min_distance = i
@@ -119,10 +147,17 @@ if __name__ == '__main__':
         print(singleton.min_distance)
         vlist = generate_map()
         graph = to_nx(vlist)
+
+
         result = {'city': singleton.output_name + '_md%s' % singleton.min_distance}
         result.update(compute_statisitcs(graph))
         results.append(result)
         print(result)
+        graph_scc = find_scc(graph)
+        result_scc = {'city': singleton.output_name + 'scc_md%s' % singleton.min_distance}
+        result_scc.update(compute_statisitcs(graph_scc))
+        results.append(result_scc)
+        print(result_scc)
 
     df = pd.DataFrame(results)
     df.drop(columns=['in_degree_avg', 'in_degree_std', 'out_degree_avg', 'out_degree_std'], inplace=True)

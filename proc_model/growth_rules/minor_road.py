@@ -35,7 +35,7 @@ def minor_road(vertex, b):
     v = random.uniform(lMin, lMax) * previous_vector
 
     random_number = random.randint(0, 100)
-    print('pForward*dens ',pForward*b )
+    # print('pForward*dens ',pForward*b )
     if random_number < pForward*b:
         k = Vertex(vertex.coords+v)
         #k.neighbours.append(vertex)
@@ -44,7 +44,7 @@ def minor_road(vertex, b):
 
     #Rechts
     random_number = random.randint(0, 100)
-    print('pForward*dens ', pForward * b)
+    # print('pForward*dens ', pForward * b)
     if random_number < pTurn*b:
         k = Vertex(vertex.coords+n)
         #k.neighbours.append(vertex)

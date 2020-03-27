@@ -24,7 +24,7 @@ def getRule(vertex):
     """
 
     # print('rule ', vertex)
-    #
+
 
     # x = (vertex.coords[0]+singleton.border[0])/(singleton.border[0]*2)
     # y = (vertex.coords[1]+singleton.border[1])/(singleton.border[1]*2)
@@ -40,7 +40,7 @@ def getRule(vertex):
     # except ValueError as err:
     #     print(vertex, err)
     x, y = vertex.coords
-    x_, y_ = vertex.coords
+    x_, y_ = x, y
     # print('x, y ', x_, y_)
     # s2 = s0*(1-y)
     # print(s2, singleton.img2.shape[0]-y*singleton.img2.shape[0])
@@ -57,7 +57,7 @@ def getRule(vertex):
         #Finds the relative position of the vertex on the growth_rule_image
         # print('pixel ', np.argmax(singleton.img[int(x)][int(y)]))
         # intrule=np.argmax(singleton.img[int(singleton.border[0] - y*singleton.border[0])][int(x*singleton.border[1])])
-        intrule = np.argmax(singleton.img[int(x)][int(y)])
+        intrule = np.argmax(singleton.img[int(x_)][int(y_)])
         z=(0, 0)
 
         #If the rule is radial, find the closest radial center

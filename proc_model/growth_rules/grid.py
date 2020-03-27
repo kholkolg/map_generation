@@ -46,7 +46,7 @@ def grid(vertex, b):
         weiter=False
     #Rechts
     random_number=random.randint(0, 100)
-    print('pTurn x dens ', pTurn*b)
+    # print('pTurn x dens ', pTurn*b)
     if random_number<=pTurn*b:
         k=Vertex(vertex.coords+n)
 
@@ -55,7 +55,7 @@ def grid(vertex, b):
 
     #Links
     random_number=random.randint(0, 100)
-    print('pTurn x dens ', pTurn * b)
+    # print('pTurn x dens ', pTurn * b)
     if random_number<=pTurn*b:
         k=Vertex(vertex.coords-n)
 
