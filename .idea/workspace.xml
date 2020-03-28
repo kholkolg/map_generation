@@ -2,27 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5914275b-2727-4ad6-9caf-bbf7b4599fab" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/proc_model/min_distance.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proc_model/road_lengths.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc_model/map_size.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/forward_and_turn_probatilities.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/proc_model/forward_and_turn_probatilities.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/inputs/roadmap.conf" beforeDir="false" afterPath="$PROJECT_DIR$/proc_model/inputs/roadmap.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/pSeed_delay.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/proc_model/pSeed_delay.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/temp/facediffused.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/temp/faceisdiffused.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/temp/test0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/temp/test0_densitymap.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/temp/test1000_40" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/temp/test1000_40_densitymap.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/temp/test10_50" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/temp/test10_50_densitymap.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/temp/test20km_100" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/temp/test20km_100_densitymap.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/temp/test20km_70" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/temp/test20km_70_densitymap.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/temp/test_small" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc_model/temp/test_small_densitymap.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proc_model/min_distance.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/proc_model/min_distance.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proc_model/road_lengths.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/proc_model/road_lengths.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,11 +15,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proc_model/road_lengths.ipynb">
           <provider selected="true" editor-type-id="ipnb-editor">
             <state>
-              <selected id="0" />
+              <selected id="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proc_model/min_distance.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/proc_model/map_size.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proc_model/outputs/scc_2000_mindist.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="163" lean-forward="true" selection-start-column="119" selection-end-column="163" />
             </state>
           </provider>
         </entry>
@@ -72,6 +82,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/proc_model/road_lengths.ipynb" />
+        <option value="$PROJECT_DIR$/proc_model/min_distance.ipynb" />
+        <option value="$PROJECT_DIR$/proc_model/map_size.ipynb" />
       </list>
     </option>
   </component>
@@ -99,6 +111,12 @@
               <item name="MapGeneration" type="b2602c69:ProjectViewProjectNode" />
               <item name="map_generation" type="462c0819:PsiDirectoryNode" />
               <item name="proc_model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MapGeneration" type="b2602c69:ProjectViewProjectNode" />
+              <item name="map_generation" type="462c0819:PsiDirectoryNode" />
+              <item name="proc_model" type="462c0819:PsiDirectoryNode" />
+              <item name="outputs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -144,7 +162,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main (2)">
+  <component name="RunManager" selected="Jupyter Notebook.MapGeneration">
+    <configuration name="MapGeneration" type="JupiterNotebook" factoryName="Jupyter Notebook">
+      <module name="MapGeneration" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="additionalOptions" value="" />
+      <option name="ipnbHost" value="127.0.0.1" />
+      <option name="ipnbPort" value="8888" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="GRE" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -380,6 +415,7 @@
       <item itemvalue="Python.main (2)" />
       <item itemvalue="Python.test" />
       <item itemvalue="Python.city_statistics" />
+      <item itemvalue="Jupyter Notebook.MapGeneration" />
     </list>
     <recent_temporary>
       <list>
@@ -415,17 +451,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="-4" width="1853" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24972677" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.18619247" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3294979" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -564,10 +601,31 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/proc_model/outputs/scc_2000_mindist.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="163" lean-forward="true" selection-start-column="119" selection-end-column="163" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/proc_model/road_lengths.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
-          <selected id="0" />
+          <selected id="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/min_distance.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc_model/map_size.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="4" />
         </state>
       </provider>
     </entry>
