@@ -123,6 +123,7 @@ def find_scc(graph):
     # Gc = max(nx.strongly_connected_subgraphs(graph), key=len)
     return graph_scc
 
+
 if __name__ == '__main__':
 
     import pandas as pd
@@ -130,17 +131,38 @@ if __name__ == '__main__':
     sys.path.append(parentpath)
 
     results = []
-    for pf, pt in list(itertools.product(range(10, 110, 10),  repeat=2)):
-        print('pforward ', pf, ', pturn ', pt)
+    for md in range(10, 100, 10):#itertools.product(range(10, 100, 10), range(10, 110, 10)):
+
         singleton = config(1)
-        singleton.radialpForward = pf
-        singleton.gridpForward = pf
-        singleton.organicpForward = pf
-        singleton.minorpForward = pf
-        singleton.radialpTurn = pt
-        singleton.gridpTurn = pt
-        singleton.organicpTurn = pt
-        singleton.minorpTurn = pt
+        # singleton.minor_road_delay = delay
+        # singleton.pSeed = pseed
+        # print('delay ', delay, ', pseed ', pseed)
+
+        singleton.min_distance = md
+        print('min distance ', singleton.min_distance)
+        # print('min ', lmin, ', max ', lmax)
+        # singleton = config(1)
+        # singleton.radiallMin = lmin
+        # singleton.gridlMin = lmin
+        # singleton.organiclMin = lmin
+        # singleton.minorlMin = lmin
+        # singleton.seedlMin = lmin
+        # singleton.radiallMax = lmax
+        # singleton.gridlMax = lmax
+        # singleton.organiclMax = lmax
+        # singleton.minorlMax = lmax
+        # singleton.seedlMax = lmax
+
+        # print('pforward ', pf, ', pturn ', pt)
+        # singleton = config(1)
+        # singleton.radialpForward = pf
+        # singleton.gridpForward = pf
+        # singleton.organicpForward = pf
+        # singleton.minorpForward = pf
+        # singleton.radialpTurn = pt
+        # singleton.gridpTurn = pt
+        # singleton.organicpTurn = pt
+        # singleton.minorpTurn = pt
 
 
         # singleton.min_distance = i
@@ -151,7 +173,7 @@ if __name__ == '__main__':
         graph = to_nx(vlist)
         graph = find_scc(graph)
 
-        result = {'city': singleton.output_name + 'scc_%s_%s' % (singleton.gridpForward, singleton.gridpTurn)}
+        result = {'city': singleton.output_name + '_md%s' % singleton.min_distance}
         result.update(compute_statisitcs(graph))
         results.append(result)
         print(result)

@@ -60,9 +60,9 @@ def config(i):
     #     f.write(singleton.density_image_name.split(".")[0]+"diffused.png")
 
 
-    singleton.center = find_radial_centers(singleton)
-    print(singleton.center)
-    singleton.center = [np.array([singleton.border[0]*((x[1]/singleton.img.shape[1])-0.5)*2, singleton.border[1]*(((singleton.img.shape[0]-x[0])/singleton.img.shape[0])-0.5)*2]) for x in singleton.center]
+    # singleton.center = find_radial_centers(singleton)
+    # print(singleton.center)
+    #singleton.center = [np.array([singleton.border[0]*((x[1]/singleton.img.shape[1])-0.5)*2, singleton.border[1]*(((singleton.img.shape[0]-x[0])/singleton.img.shape[0])-0.5)*2]) for x in singleton.center]
 
     # from procedural_city_generation.roadmap.config_functions.setup_heightmap import setup_heightmap
     # setup_heightmap(singleton, path)
@@ -78,6 +78,15 @@ def config(i):
     singleton.global_lists.tree = cKDTree(singleton.global_lists.coordslist, leafsize=160)
 
     return singleton
+
+
+def generate_axioms(dims, num_axioms):
+    x, y = dims/2
+
+    axioms = [[np.random.normal(x, np.sqrt(x)), np.random.normal(y, np.sqrt(y))] for _ in range(num_axioms)]
+    return axioms
+
+
 
 
 def setNeighbours(vertex, axiom):

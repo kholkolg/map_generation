@@ -103,6 +103,6 @@ def one_ways(graph):
         #     print(graph.has_edge(v,u))
         oneways = [data['length'] for u, v, data in graph.edges(data=True) if not graph.has_edge(v, u)]
 
-    result = {'num_oneway': len(oneways), 'len_oneways': sum(oneways)}
+    result = {'num_oneways': len(oneways), 'len_oneways': sum(oneways)}
     print(result)
     return result
